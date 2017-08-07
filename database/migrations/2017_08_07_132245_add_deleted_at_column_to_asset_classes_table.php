@@ -27,6 +27,8 @@ class AddDeletedAtColumnToAssetClassesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('asset_classes');
+            Schema::table('asset_classes',function(Blueprint $table){
+              $table -> dropColumn('deleted_at');
+            });
     }
 }

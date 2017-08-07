@@ -31,5 +31,12 @@ Route::get('assets/assetsubclasses/{id}/edit','AssetSubclassesController@edit')-
 Route::patch('assets/assetsubclasses/{id}/update','AssetSubclassesController@update')->name('assetsubclass.update');
 Route::post('assets/assetsubclasses/{id}/delete','AssetSubclassesController@destroy')->name('assetsubclass.delete');
 
+Route::get('assets/locations','LocationsController@index')->name('locations.list');
+Route::get('assets/locations/create','LocationsController@create')->name('location.create');
+Route::post('assets/locations/store','LocationsController@store')->name('location.store');
+Route::get('assets/locations/{id}/edit','LocationsController@edit')->name('location.edit');
+Route::patch('assets/locations/{id}/update','LocationsController@update')->name('location.update');
+Route::post('assets/locations/{id}/delete','LocationsController@destroy')->name('location.delete');
+
 
 

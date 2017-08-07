@@ -34,6 +34,9 @@ class CreateAssetSubclassTable extends Migration
      */
     public function down()
     {
-        Schema::drop('asset_subclasses');
+        if(Schema::hasTable('asset_subclasses'))
+        {
+           Schema::drop('asset_subclasses');
+        }
     }
 }
