@@ -18,7 +18,6 @@ class CreateAssetSubclassTable extends Migration
             $table->string('description')->nullable();
             $table->integer('min_useful_life')->nullable();
             $table->integer('max_useful_life')->nullable();
-
             //Foreign keys
              $table->integer('asset_class_id')->unsigned()->nullable();
              $table->foreign('asset_class_id')->references('id')->on('asset_classes');
