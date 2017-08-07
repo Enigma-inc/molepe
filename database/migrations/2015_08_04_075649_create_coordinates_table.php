@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUsersTable extends Migration
+class CreateCoordinatesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,12 +12,10 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('coordinates', function(Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->string('password', 60);
-            $table->rememberToken();
+            $table->double('latitude');
+            $table->double('longitude');
             $table->timestamps();
         });
     }
@@ -29,6 +27,8 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
-        Schema::drop('users');
+        if(Schema::hasTable('coordinates')){
+        Schema::drop('coordinates');
+        }
     }
 }
