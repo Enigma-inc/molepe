@@ -14,12 +14,12 @@ class AssetSubclassesController extends Controller
 
     public function index(){
        $assetsubclasses = AssetSubclass::latest()->paginate(8);
-       return view('assetsubclasses.list')->with('assetsubclasses',$assetsubclasses);
+       return view('assets.assetsubclasses.index')->with('assetsubclasses',$assetsubclasses);
     }
 
     public function create(){
         $assetclasses = AssetClass::all();
-        return view('assetsubclasses.create')->with('assetclasses',$assetclasses);
+        return view('assets.assetsubclasses.create')->with('assetclasses',$assetclasses);
     }
     
     public function show(){
@@ -36,7 +36,7 @@ class AssetSubclassesController extends Controller
             'asset_class_id' =>$request->input('asset-class')
        ]);
 
-      return redirect()->route('assetsubclasses.list');       
+      return redirect()->route('assetsubclass.list');       
     }
 
     public function edit($id){
@@ -44,10 +44,10 @@ class AssetSubclassesController extends Controller
         $assetclasses = AssetClass::all();
         if(!empty($assetsubclass->toArray()))
         {
-            return view('assetsubclasses.edit')->with(['assetsubclass'=>$assetsubclass, 'assetclasses'=>$assetclasses]);
+            return view('assets.assetsubclasses.edit')->with(['assetsubclass'=>$assetsubclass, 'assetclasses'=>$assetclasses]);
         } 
         else{
-            return redirect()->route('assetsubclasses.list');
+            return redirect()->route('assetsubclass.list');
         }
     }
 
@@ -62,6 +62,6 @@ class AssetSubclassesController extends Controller
 
     public function destroy($id){
         $deletedassetsubclass = AssetSubclass::find($id)->delete();
-        return redirect()->route('assetsubclasses.list');
+        return redirect()->route('assetsubclass.list');
     }
 }

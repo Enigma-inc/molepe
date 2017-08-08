@@ -14,8 +14,8 @@
                     <div class="col-md-6 bordered">
                         <div class="card-inverse">
                         <div class="card-block">
-                            <h3 class="card-title">{{$assetclass -> name}}</h3>
-                            <p class="card-text">{{$assetclass -> description}}</p>
+                            <h3 class="card-title">{{$assetclass->name}}</h3>
+                            <p class="card-text">{{$assetclass->description}}</p>
                             <a href="{{route('assetclass.edit',$assetclass->id)}}" class="btn btn-primary">Edit</a>
 
                             <form action="{{route('assetclass.delete',['id'=>$assetclass->id])}}" method="POST">
