@@ -14,7 +14,7 @@ class AssetSubclassesController extends Controller
 
     public function index(){
        $assetsubclasses = AssetSubclass::latest()->paginate(8);
-       return view('assetsubclass.index')->with('assetsubclasses',$assetsubclasses);
+       return view('assetsubclasses.index')->with('assetsubclasses',$assetsubclasses);
     }
 
     public function create(){
