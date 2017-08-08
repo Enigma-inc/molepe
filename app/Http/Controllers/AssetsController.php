@@ -111,7 +111,7 @@ class AssetsController extends Controller
 
     public function update()
     {
-        
+         return redirect()->route('asset.list');
     }
 
     public function addCoordinates()

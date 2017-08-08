@@ -46,16 +46,17 @@
                                 <td>
                                      <div class="dropdown">
                                         <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+                                        <i class="fa fa-list text-primary"></i>
                                             Edit Fields
                                         <span class="caret"></span></button>
                                             <ul class="dropdown-menu">
-                                                <li><a href="{{route('asset.edit',$asset->id)}}"> Identification</a></li>
-                                                <li><a href="#"> Acquisition</a></li>
-                                                <li><a href="#"> Accountability</a></li>
-                                                <li><a href="#"> Performance</a></li>
-                                                <li><a href="#"> Accounting</a></li>
-                                                <li><a href="#"> Disposal</a></li>
-                                                <li><a href="#">Management & Risk</a></li>                                                
+                                                <li><a href="{{route('asset.edit',$asset->id)}}"><i class="fa fa-file-text text-primary"></i> Identification</a></li>
+                                                <li><a href="#"><i class="fa fa-long-arrow-down text-primary"></i> Acquisition</a></li>
+                                                <li><a href="#"><i class="fa fa-users text-primary"></i> Accountability</a></li>
+                                                <li><a href="#"><i class="fa fa-sliders text-primary pill-right"></i> Performance</a></li>
+                                                <li><a href="#"><i class="fa fa-money text-primary"></i> Accounting</a></li>
+                                                <li><a href="#"><i class="fa fa-trash-o text-primary"></i> Disposal</a></li>
+                                                <li><a href="#"><i class="fa fa-warning text-primary"></i>Management & Risk</a></li>                                                
                                             </ul>
                                     </div>
                                 </td>
