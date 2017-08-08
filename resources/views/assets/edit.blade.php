@@ -19,6 +19,7 @@
                                 @endif
                             </div>
                         </div>
+
                         
                         <div class="form-group{{ $errors->has('asset-description') ? ' has-error' : '' }}">
                             <label for="description" class="col-md-4 control-label">Asset Description</label>
@@ -45,29 +46,59 @@
                                 @endif
                             </div>
                         </div>
-
-                        <div class="form-group{{ $errors->has('latitude') ? ' has-error' : '' }}">
-                            <label for="latitude" class="col-md-4 control-label">Coordinates(Latitude)</label></label>
+                        <div class="form-group{{ $errors->has('asset-dimensions') ? ' has-error' : '' }}">
+                            <label for="asset-dimensions" class="col-md-4 control-label">Dimensions/Capacity</label></label>
 
                             <div class="col-md-6">                            
-                            {!! Form::text('latitude', null, ['class' => 'form-control']) !!}
-                                @if ($errors->has('latitude'))
+                            {!! Form::text('dimensions', null, ['class' => 'form-control']) !!}
+                                @if ($errors->has('asset-dimensions'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('latitude') }}</strong>
+                                        <strong>{{ $errors->first('asset-dimensions') }}</strong>
                                     </span> 
                                 @endif
                             </div>
                         </div>
+                        <div class="form-group{{ $errors->has('asset-construction') ? ' has-error' : '' }}">
+                            <label for="asset-construction" class="col-md-4 control-label">Asset Construction</label></label>
 
-                        <div class="form-group{{ $errors->has('longitude') ? ' has-error' : '' }}">
-                            <label for="longitude" class="col-md-4 control-label">Coordinates(Longitude)</label></label>
-
-                            <div class="col-md-6">
-                            {!! Form::text('longitude', null, ['class' => 'form-control']) !!}
-                                @if ($errors->has('longitude'))
+                            <div class="col-md-6">                            
+                            {!! Form::text('construction', null, ['class' => 'form-control']) !!}
+                                @if ($errors->has('asset-construction'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('longitude') }}</strong>
+                                        <strong>{{ $errors->first('asset-construction') }}</strong>
                                     </span> 
+                                @endif
+                            </div>
+                        </div>
+                        <div class="margin-bottom-40 form-group{{$errors->has('asset-subclass') ? 'has-error' : ''}}">
+                            <label for="asset-subclass" class="col-md-4 control-label">Asset Subclass</label>
+                            <div class="col-md-6">
+                                <select name="asset-subclass" id="asset-subclass" class="form-control">
+                                    <option value=""></option>
+                                    @foreach($assetSubclasses as $assetSubclass)
+                                        <option value="{{$assetSubclass->id}}">{{$assetSubclass->name}}</option>
+                                    @endforeach
+                                </select>
+                                @if($errors->has('asset-subclass'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('asset-subclass') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>                                                  
+                        <div class="margin-bottom-40 form-group{{$errors->has('parent-asset') ? 'has-error' : ''}}">
+                            <label for="parent-asset" class="col-md-4 control-label">Parent Class</label>
+                            <div class="col-md-6">
+                                <select name="parent-asset" id="parent-asset" class="form-control">
+                                    <option value=""></option>
+                                    @foreach($parentAssets as $parentAsset)
+                                        <option value="{{$parentAsset->id}}">{{$parentAsset->asset_number}} - {{$parentAsset->description}}</option>
+                                    @endforeach
+                                </select>
+                                @if($errors->has('parent-asset'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('parent-asset') }}</strong>
+                                    </span>
                                 @endif
                             </div>
                         </div>
@@ -104,7 +135,23 @@
                                     </span>
                                 @endif
                             </div>
-                        </div>                        
+                        </div> 
+                        <div class="margin-bottom-40 form-group{{$errors->has('asset-group') ? 'has-error' : ''}}">
+                            <label for="asset-group" class="col-md-4 control-label">Asset Functional Group</label>
+                            <div class="col-md-6">
+                                <select name="asset-group" id="asset-group" class="form-control">
+                                    <option value=""></option>
+                                    @foreach($assetGroups as $assetGroup)
+                                        <option value="{{$assetGroup->id}}">{{$assetGroup->name}}</option>
+                                    @endforeach
+                                </select>
+                                @if($errors->has('asset-group'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('asset-group') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>                       
                         
                          <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">

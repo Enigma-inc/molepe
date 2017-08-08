@@ -41,28 +41,6 @@ class AssetsController extends Controller
                                             ]);
         
     }
-
-    public function editAssetIdentification($id){
-        $asset = Asset::find($id);
-        return view('assets.identification.edit')->with(['asset'=>$asset]);    
-    }
-
-    public function updateAssetIdentification(Request $request, Asset $asset){
-        $asset->description = $request->input('description');
-        $asset->save();
-         return redirect()->route('asset.list');
-    }
-    
-    public function editAssetLocation($id){
-        $asset = Asset::find($id);
-        $location = Location::find($asset->location_id);
-        $assetLocations = Location::all();
-        return view('assets.location.edit')->with(['asset'=>$asset,'assetLocations'=>$assetLocations,'location'=>$location]);
-    }
-
-    public function updateLocation(Request $request, Asset $asset){
-        dd($asset);
-    }
     public function showBrief()
     {
 
@@ -109,13 +87,25 @@ class AssetsController extends Controller
     }
 
 
-    public function update()
-    {
+    public function update(Request $request, Asset $asset)
+    { 
+        //dd($request->toArray());
+        $asset ->asset_number  = $request->input('asset_number');
+        $asset ->description = $request->input('description');
+        $asset->dimensions = $request->input('dimensions');
+        $asset->construction = $request->input('construction');
+        $asset->specific_identifiers = $request->input('specific_identifiers');
+        $asset->class_id = $request->input('asset-subclass');
+        $asset->zone_id = $request->input('asset-zone');
+        $asset->location_id = $request->input('asset-location');
+        $asset->functional_group_id = $request->input('asset-group');       
+        $asset->parent_id = $request->input('parent-asset');
+        $asset->save();
          return redirect()->route('asset.list');
     }
 
     public function addCoordinates()
-    {
+     {
 
     }
     
