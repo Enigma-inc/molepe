@@ -58,6 +58,7 @@ class AssetSubclassesController extends Controller
         $assetsubclass->max_useful_life = $request -> input('max_useful_life');
         $assetsubclass->asset_class_id = $request ->input('asset-class');
         $assetsubclass->save();
+        return redirect()->route('assetsubclass.list');   
     }
 
     public function destroy($id){
