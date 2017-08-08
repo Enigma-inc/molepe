@@ -8,6 +8,10 @@
       -ms-flex-pack: justify;
           justify-content: space-between;
 }
+        
+.bordered {
+  border-style: groove;
+}
 
 /*!
  * Bootstrap v3.3.7 (http://getbootstrap.com)
