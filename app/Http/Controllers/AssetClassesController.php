@@ -16,7 +16,7 @@ class AssetClassesController extends Controller
 
     public function index(){
        $assetclasses = AssetClass::latest()->paginate(8);
-       return view('assetclasses.list')->with('assetclasses',$assetclasses);
+       return view('assetclasses.index')->with('assetclasses',$assetclasses);
     }
 
     public function store(assetClassesRequest $request){
@@ -24,7 +24,7 @@ class AssetClassesController extends Controller
             'name' => $request->input('name'),
             'description' => $request->input('description')
          ]);
-         return redirect()->route('assetclasses.list'); 
+         return redirect()->route('assetclass.list'); 
     }
 
     public function edit($id){
@@ -34,7 +34,7 @@ class AssetClassesController extends Controller
             return view('assetclasses.edit')->with(['assetclass'=>$assetclass]);
         } 
         else{
-            return redirect()->route('assetclasses.list');
+            return redirect()->route('assetclass.list');
         }
     }
     public function update(assetClassesRequest $request, AssetClass $assetclass){
@@ -42,7 +42,7 @@ class AssetClassesController extends Controller
         $assetclass->name = $request->input('name');
         $assetclass ->description = $request->input('description');
         $assetclass -> save();
-        return redirect()->route('assetclasses.list');
+        return redirect()->route('assetclass.list');
     }
     public function create(){
         return view('assetclasses.create');
@@ -51,6 +51,6 @@ class AssetClassesController extends Controller
     public function destroy($id){
         $deletedassetclass = AssetClass::find($id)
                                          ->delete();
-         return redirect()->route('assetclasses.list');
+         return redirect()->route('assetclass.list');
     }
 }

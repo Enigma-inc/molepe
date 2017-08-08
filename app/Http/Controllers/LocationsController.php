@@ -30,7 +30,7 @@ class LocationsController extends Controller
            'latitude' => request('latitude') 
         ]);
     
-    return redirect()->route('locations.list');
+    return redirect()->route('location.list');
     }
 
     public function edit($id){

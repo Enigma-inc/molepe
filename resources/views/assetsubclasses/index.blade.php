@@ -14,10 +14,10 @@
                     <div class="col-md-6 bordered">
                         <div class="card-inverse">
                         <div class="card-block">
-                            <h3 class="card-title">{{$assetsubclass -> name}}</h3>
-                            <p class="card-text">{{$assetsubclass -> description}}</p>
-                            <p class="card-text">Minimum useful life: {{$assetsubclass -> min_useful_life}}</p>
-                            <p class="card-text">Maximum useful life: {{$assetsubclass -> max_useful_life}}</p>                                                            
+                            <h3 class="card-title">{{$assetsubclass->name}}</h3>
+                            <p class="card-text">{{$assetsubclass->description}}</p>
+                            <p class="card-text">Minimum useful life: {{$assetsubclass->min_useful_life}}</p>
+                            <p class="card-text">Maximum useful life: {{$assetsubclass->max_useful_life}}</p>                                                            
                             <a href="{{route('assetsubclass.edit',$assetsubclass->id)}}" class="btn btn-default">Edit</a>
                             <form action="{{route('assetsubclass.delete',['id'=>$assetsubclass->id])}}" method="POST">
                                 {{csrf_field()}}
