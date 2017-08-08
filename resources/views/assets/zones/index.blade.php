@@ -2,6 +2,9 @@
 @section('content')
 <div class="container">
     <div class="row">
+        <div class="col-xs-12">
+            <a href="{{route('zone.create')}}" class="btn btn-primary col-xs-12 col-sm-6 col-md-4 pull-right">Add Zone</a>
+        </div>
             <div class="panel panel-default">
                 <div class="panel-heading">List Of Zones</div>
                 <div class="panel-body">

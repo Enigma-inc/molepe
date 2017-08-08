@@ -15,11 +15,11 @@ class LocationsController extends Controller
     //
     public function index(){
         $assetlocations = Location::latest()->paginate(8);
-       return view('locations.index')->with('assetlocations',$assetlocations);
+       return view('assets.locations.index')->with('assetlocations',$assetlocations);
     }
 
     public function create(){
-        return view('locations.create');
+        return view('assets.locations.create');
     }
 
     public function store(locationRequest $request){
@@ -37,7 +37,7 @@ class LocationsController extends Controller
         $assetlocation = Location::find($id);
         if(!empty($assetlocation->toArray()))
         {
-            return view('locations.edit')->with(['assetlocation'=>$assetlocation]);
+            return view('assets.locations.edit')->with(['assetlocation'=>$assetlocation]);
         } 
         else{
             return redirect()->route('location.list');

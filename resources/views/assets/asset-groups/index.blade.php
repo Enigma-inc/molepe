@@ -2,6 +2,9 @@
 @section('content')
 <div class="container">
     <div class="row">
+        <div class="co col-xs-12">
+            <a href="{{route('asset-group.create')}}" class="btn btn-primary col-xs-12 col-sm-6 col-md-4 pull-right">Add Asset-Group</a>
+        </div>
             <div class="panel panel-default">
                 <div class="panel-heading">List Of Asse Groups</div>
                 <div class="panel-body">

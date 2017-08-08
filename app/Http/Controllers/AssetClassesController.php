@@ -16,7 +16,7 @@ class AssetClassesController extends Controller
 
     public function index(){
        $assetclasses = AssetClass::latest()->paginate(8);
-       return view('assetclasses.index')->with('assetclasses',$assetclasses);
+       return view('assets.assetclasses.index')->with('assetclasses',$assetclasses);
     }
 
     public function store(assetClassesRequest $request){
@@ -31,7 +31,7 @@ class AssetClassesController extends Controller
         $assetclass = AssetClass::find($id);
         if(!empty($assetclass->toArray()))
         {
-            return view('assetclasses.edit')->with(['assetclass'=>$assetclass]);
+            return view('assets.assetclasses.edit')->with(['assetclass'=>$assetclass]);
         } 
         else{
             return redirect()->route('assetclass.list');
@@ -45,7 +45,7 @@ class AssetClassesController extends Controller
         return redirect()->route('assetclass.list');
     }
     public function create(){
-        return view('assetclasses.create');
+        return view('assets.assetclasses.create');
     }
 
     public function destroy($id){

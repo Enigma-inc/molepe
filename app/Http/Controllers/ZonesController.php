@@ -15,12 +15,12 @@ class ZonesController extends Controller
     public function index(){
         $zones = Zone::latest()->paginate(15);
 
-        return view('zones.index')
+        return view('assets.zones.index')
                ->with(['zones' => $zones]);
     }
 
     public function create(){
-        return view('zones.create');
+        return view('assets.zones.create');
     }
 
     public function store(ZoneRequest $request){
@@ -35,7 +35,7 @@ class ZonesController extends Controller
     public function edit($id){
         $zone = Zone::find($id);
 
-        return view('zones.edit')
+        return view('assets.zones.edit')
              ->with(['zone' => $zone]);
     }
 

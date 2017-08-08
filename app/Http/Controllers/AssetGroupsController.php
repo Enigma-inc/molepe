@@ -15,12 +15,12 @@ class AssetGroupsController extends Controller
     public function index(){
         $assetGroups = AssetGroup::latest()->paginate(15);
 
-        return view('asset-groups.index')
+        return view('assets.asset-groups.index')
                ->with(['assetGroups' => $assetGroups]);
     }
 
     public function create(){
-        return view('asset-groups.create');
+        return view('assets.asset-groups.create');
     }
 
     public function store(AssetGroupRequest $request){
@@ -35,7 +35,7 @@ class AssetGroupsController extends Controller
     public function edit($id){
         $assetGroup = AssetGroup::find($id);
 
-        return view('asset-groups.edit')
+        return view('assets.asset-groups.edit')
              ->with(['assetGroup' => $assetGroup]);
     }
 
