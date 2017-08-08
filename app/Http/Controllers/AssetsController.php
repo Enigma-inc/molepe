@@ -66,6 +66,10 @@ class AssetsController extends Controller
     public function edit($id)
     {
         $asset = Asset::find($id);
+        $assetFunctionGroup = AssetGroup::find($asset->functional_group_id); 
+        $selectedZone = Zone::find($asset->zone_id);
+        $selectedAssetClass = AssetSubclass::find($asset->class_id);
+        
         $parentAssets = Asset::all();
         $assetZones = Zone::all();
         $assetSubclasses = AssetSubclass::all();
@@ -79,7 +83,9 @@ class AssetsController extends Controller
                                               'assetSubclasses' => $assetSubclasses,
                                               'assetLocations' => $assetLocations,
                                               'assetGroups' => $assetGroups,
-                                              //'coordinates' => $coordinates
+                                              'assetFunctionGroup' => $assetFunctionGroup,
+                                              'selectedZone'=>$selectedZone,
+                                              'selectedAssetClass'=>$selectedAssetClass
                                             ]);
         }else{
             return redirect()->route('asset.list');
@@ -104,9 +110,9 @@ class AssetsController extends Controller
          return redirect()->route('asset.list');
     }
 
-    public function addCoordinates()
-     {
-
-    }
+   public function destroy($id){
+       $deletedasset = Asset::find($id)->delete();
+       return redirect()->route('asset.list'); 
+   }
     
 }

@@ -74,9 +74,11 @@
                             <label for="asset-subclass" class="col-md-4 control-label">Asset Subclass</label>
                             <div class="col-md-6">
                                 <select name="asset-subclass" id="asset-subclass" class="form-control">
-                                    <option value=""></option>
+                                  <option value="{{$selectedAssetClass->id}}">{{$selectedAssetClass->name}}</option>
                                     @foreach($assetSubclasses as $assetSubclass)
+                                        @if($selectedAssetClass->name!=$assetSubclass->name)
                                         <option value="{{$assetSubclass->id}}">{{$assetSubclass->name}}</option>
+                                        @endif
                                     @endforeach
                                 </select>
                                 @if($errors->has('asset-subclass'))
@@ -90,7 +92,7 @@
                             <label for="parent-asset" class="col-md-4 control-label">Parent Class</label>
                             <div class="col-md-6">
                                 <select name="parent-asset" id="parent-asset" class="form-control">
-                                    <option value=""></option>
+                                    
                                     @foreach($parentAssets as $parentAsset)
                                         <option value="{{$parentAsset->id}}">{{$parentAsset->asset_number}} - {{$parentAsset->description}}</option>
                                     @endforeach
@@ -107,9 +109,12 @@
                             <label for="asset-zone" class="col-md-4 control-label">Asset Zone</label>
                             <div class="col-md-6">
                                 <select name="asset-zone" id="asset-zone" class="form-control">
-                                    <option value="asset_zone"></option>
+                                    <option value="{{$selectedZone->id}}">{{$selectedZone->name}}</option>
+                                
                                     @foreach($assetZones as $assetZone)
+                                     @if($selectedZone->name!= $assetZone->name)
                                         <option value="{{$assetZone->id}}">{{$assetZone->name}}</option>
+                                    @endif
                                     @endforeach
                                 </select>
                                 @if($errors->has('asset-zone'))
@@ -124,7 +129,6 @@
                             <label for="asset-location" class="col-md-4 control-label">Asset Location</label>
                             <div class="col-md-6">
                                 <select name="asset-location" id="asset-location" class="form-control">
-                                    <option value=""></option>
                                     @foreach($assetLocations as $assetLocation)
                                         <option value="{{$assetLocation->id}}">{{$assetLocation->name}}</option>
                                     @endforeach
@@ -140,9 +144,11 @@
                             <label for="asset-group" class="col-md-4 control-label">Asset Functional Group</label>
                             <div class="col-md-6">
                                 <select name="asset-group" id="asset-group" class="form-control">
-                                    <option value=""></option>
+                                    <option value="{{$assetFunctionGroup->id}}">{{$assetFunctionGroup->name}}</option>
                                     @foreach($assetGroups as $assetGroup)
+                                        @if($assetFunctionGroup->name != $assetGroup->name)
                                         <option value="{{$assetGroup->id}}">{{$assetGroup->name}}</option>
+                                        @endif
                                     @endforeach
                                 </select>
                                 @if($errors->has('asset-group'))

@@ -44,6 +44,7 @@
                                     {{$asset->created_at->format('d M Y')}}
                                 </td>
                                 <td>
+                                <div class="col-xs-12 button-flex">
                                      <div class="dropdown">
                                         <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
                                         <i class="fa fa-list text-primary"></i>
@@ -59,6 +60,12 @@
                                                 <li><a href="#"><i class="fa fa-warning text-primary"></i>Management & Risk</a></li>                                                
                                             </ul>
                                     </div>
+                                        <form action="{{route('asset.delete',['id'=>$asset->id])}}" method="POST">
+                                            {{csrf_field()}}
+                                            <input type="text" name="file-name"class="" value="{{$asset->id}}" hidden>
+                                            <button type="submit" class="btn btn-danger btn-xs margin-right-5"><i class="fa fa-trash-o"></i>Remove</button>
+                                        </form>
+                                    </div>    
                                 </td>
                             </tr>
                          @endforeach
