@@ -29,7 +29,7 @@
                             <label for="longitude" class="col-md-4 control-label">Location(Longitude)</label>
 
                             <div class="col-md-6">
-                            {!! Form::text('longitude',null,['class' => 'form-control', 'rows' => 5]) !!}
+                            {!! Form::text('longitude',null,['class' => 'form-control']) !!}
                                 @if ($errors->has('longitude'))
                                 <span class="help-block">
                                         <strong>{{ $errors->first('longitude') }}</strong>
@@ -42,7 +42,7 @@
                             <label for="latitude" class="col-md-4 control-label">Location(Latitude)</label>
 
                             <div class="col-md-6">
-                            {!! Form::text('latitude',null,['class' => 'form-control', 'rows' => 5]) !!}
+                            {!! Form::text('latitude',null,['class' => 'form-control']) !!}
                                 @if ($errors->has('latitude'))
                                 <span class="help-block">
                                         <strong>{{ $errors->first('latitude') }}</strong>

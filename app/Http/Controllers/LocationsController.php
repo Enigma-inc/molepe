@@ -26,7 +26,7 @@ class LocationsController extends Controller
         Location::create([
            'name' => request('name'),
            'description' => request('description'),
-           'logitude' => request('logitude'),
+           'longitude' => request('logitude'),
            'latitude' => request('latitude') 
         ]);
     
@@ -47,10 +47,10 @@ class LocationsController extends Controller
     public function update(locationRequest $request, Location $assetlocation){
         $assetlocation->name = $request->input('name');
         $assetlocation->description = $request->input('description');
-        $assetlocation->logitude = $request->input('longitude');
+        $assetlocation->longitude = $request->input('longitude');
         $assetlocation->latitude = $request->input('latitude');
         $assetlocation ->save();
-
+        return redirect()->route('location.list');
     }
     public function destroy($id){
         $deletedAssetLocation = Location::find($id) -> delete();
