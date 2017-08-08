@@ -59,5 +59,12 @@ Route::get('assets/locations/{id}/edit','LocationsController@edit')->name('locat
 Route::patch('assets/locations/{id}/update','LocationsController@update')->name('location.update');
 Route::post('assets/locations/{id}/delete','LocationsController@destroy')->name('location.delete');
 
+//Asset
+Route::get('assets','AssetsController@index')->name('asset.list');
+Route::get('assets/create','AssetsController@create')->name('asset.create');
+Route::post('assets/store','AssetsController@store')->name('asset.store');
+Route::get('assets/{id}/edit','AssetsController@edit')->name('asset.edit');
+Route::patch('assets/{id}/update','AssetsController@update')->name('asset.update');
+Route::post('assets/{id}/delete','AssetsController@destroy')->name('asset.delete');
 
 

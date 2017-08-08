@@ -8,7 +8,6 @@ use App\Location;
 use App\Coordinates;
 use App\AssetGroup;
 use Illuminate\Http\Request;
-use App\Helpers\inputsHelper;
 
 class AssetsController extends Controller
 {
@@ -33,9 +32,6 @@ class AssetsController extends Controller
         $assetSubclasses=AssetSubclass::all();
         $assetLocations=Location::all();
         $assetGroups=AssetGroup::all();
-
-        $limit = inputsHelper::setPaginationLimit();
-        $filters = inputsHelper::getFilters();
 
         return view('assets.create')->with(['parentAssets' =>$parentAssets, 
                                             'assetZones'=>$assetZones, 
