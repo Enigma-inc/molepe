@@ -71,6 +71,7 @@
                     @auth
                         <a href="{{ route('home') }}">Home</a>
                         <a href="{{ route('zone.list') }}">Zones</a>
+                        <a href="{{ route('asset-group.list') }}">Asset Groups</a>                        
                     @else
                         <a href="{{ route('login') }}">Login</a>
                         <a href="{{ route('register') }}">Register</a>
