@@ -52,4 +52,8 @@ class LocationsController extends Controller
         $assetlocation ->save();
 
     }
+    public function destroy($id){
+        $deletedAssetLocation = Location::find($id) -> delete();
+        return redirect()->route('location.list');
+    }
 }
