@@ -2,9 +2,7 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="co col-xs-12">
             <a href="{{route('asset-group.create')}}" class="btn btn-primary col-xs-12 col-sm-6 col-md-4 pull-right">Add Asset-Group</a>
-        </div>
             <div class="panel panel-default">
                 <div class="panel-heading">List Of Asse Groups</div>
                 <div class="panel-body">
@@ -27,11 +25,11 @@
                                 </td>
                                 <td>
                                     <div class="col-xs-12 button-flex">
-                                        <a href="{{route('asset-group.edit',$assetGroup->id)}}" class="btn btn-info btn-xs margin-right-5"><i class="fa fa-trash-o"></i>Edit</a>
+                                        <a href="{{route('asset-group.edit',$assetGroup->id)}}" class="btn btn-info btn-xs margin-right-5"><i class="fa fa-edit"></i> Edit</a>
                                         <form action="{{route('asset-group.delete',['id'=>$assetGroup->id])}}" method="POST">
                                             {{csrf_field()}}
                                             <input type="text" name="file-name"class="" value="{{$assetGroup->id}}" hidden>
-                                            <button type="submit" class="btn btn-danger btn-xs margin-right-5"><i class="fa fa-trash-o"></i>Remove</button>
+                                            <button type="submit" class="btn btn-danger btn-xs margin-right-5"><i class="fa fa-trash-o"></i> Remove</button>
                                         </form>
                                     </div>
                                 </td>

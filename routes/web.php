@@ -36,28 +36,28 @@ Route::patch('asset-groups/{id}', 'AssetGroupsController@update')->name('asset-g
 Route::post('asset-groups/{id}/delete', 'AssetGroupsController@delete')->name('asset-group.delete');
 
 //Asset Classes
-Route::get('assets/assetclasses','AssetClassesController@index')->name('assetclass.list');
-Route::get('assets/assetclasses/create','AssetClassesController@create')->name('assetclass.create');
-Route::post('assets/assetclasses/store','AssetClassesController@store')->name('assetclass.store');
-Route::get('assets/assetclasses/{id}/edit','AssetClassesController@edit')->name('assetclass.edit');
-Route::patch('assets/assetclasses/{id}/update','AssetClassesController@update')->name('assetclass.update');
-Route::post('assets/assetclasses/{id}/delete','AssetClassesController@destroy')->name('assetclass.delete');
+Route::get('asset-classes','AssetClassesController@index')->name('assetclass.list');
+Route::get('asset-classes/create','AssetClassesController@create')->name('assetclass.create');
+Route::post('asset-classes/store','AssetClassesController@store')->name('assetclass.store');
+Route::get('asset-classes/{id}/edit','AssetClassesController@edit')->name('assetclass.edit');
+Route::patch('asset-classes/{id}/update','AssetClassesController@update')->name('assetclass.update');
+Route::post('asset-classes/{id}/delete','AssetClassesController@destroy')->name('assetclass.delete');
 
 //Asset Subclasses
-Route::get('assets/assetsubclasses','AssetSubclassesController@index')->name('assetsubclass.list');
-Route::get('assets/assetsubclasses/create','AssetSubclassesController@create')->name('assetsubclass.create');
-Route::post('assets/assetsubclasses/store','AssetSubclassesController@store')->name('assetsubclass.store');
-Route::get('assets/assetsubclasses/{id}/edit','AssetSubclassesController@edit')->name('assetsubclass.edit');
-Route::patch('assets/assetsubclasses/{id}/update','AssetSubclassesController@update')->name('assetsubclass.update');
-Route::post('assets/assetsubclasses/{id}/delete','AssetSubclassesController@destroy')->name('assetsubclass.delete');
+Route::get('asset-subclasses','AssetSubclassesController@index')->name('assetsubclass.list');
+Route::get('asset-subclasses/create','AssetSubclassesController@create')->name('assetsubclass.create');
+Route::post('asset-subclasses/store','AssetSubclassesController@store')->name('assetsubclass.store');
+Route::get('asset-subclasses/{id}/edit','AssetSubclassesController@edit')->name('assetsubclass.edit');
+Route::patch('asset-subclasses/{id}/update','AssetSubclassesController@update')->name('assetsubclass.update');
+Route::post('asset-subclasses/{id}/delete','AssetSubclassesController@destroy')->name('assetsubclass.delete');
 
 //Asset Locations
-Route::get('assets/locations','LocationsController@index')->name('location.list');
-Route::get('assets/locations/create','LocationsController@create')->name('location.create');
-Route::post('assets/locations/store','LocationsController@store')->name('location.store');
-Route::get('assets/locations/{id}/edit','LocationsController@edit')->name('location.edit');
-Route::patch('assets/locations/{id}/update','LocationsController@update')->name('location.update');
-Route::post('assets/locations/{id}/delete','LocationsController@destroy')->name('location.delete');
+Route::get('locations','LocationsController@index')->name('location.list');
+Route::get('locations/create','LocationsController@create')->name('location.create');
+Route::post('locations/store','LocationsController@store')->name('location.store');
+Route::get('locations/{id}/edit','LocationsController@edit')->name('location.edit');
+Route::patch('locations/{id}/update','LocationsController@update')->name('location.update');
+Route::post('locations/{id}/delete','LocationsController@destroy')->name('location.delete');
 
 //Asset
 Route::get('assets','AssetsController@index')->name('asset.list');

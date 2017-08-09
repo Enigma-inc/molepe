@@ -6,7 +6,7 @@
 <div class="row">
         <div class="col-md-8 col-md-offset-2"> 
             <div class="panel panel-default">
-
+                <div class="panel-heading">Edit a Location</div>
                 <div class="panel-body">
                     {!! Form::model($assetlocation,['method' => 'PATCH', 'route' => ['location.update',$assetlocation->id], 'class' => 'form-horizontal']) !!}
                         {{ csrf_field() }}

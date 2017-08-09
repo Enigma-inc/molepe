@@ -41,6 +41,7 @@ class AssetsController extends Controller
                                             ]);
         
     }
+    
     public function showBrief()
     {
 
