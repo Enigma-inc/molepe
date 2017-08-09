@@ -8,7 +8,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Edit Asset-Class</div>
                 <div class="panel-body">
-                    {!! Form::model($assetclass,['method' => 'PATCH', 'route' => ['assetclass.update',$assetclass->id], 'class' => 'form-horizontal']) !!}
+                    {!! Form::model($assetClass,['method' => 'PATCH', 'route' => ['assetClass.update',$assetClass->id], 'class' => 'form-horizontal']) !!}
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('asset-name') ? ' has-error' : '' }}">

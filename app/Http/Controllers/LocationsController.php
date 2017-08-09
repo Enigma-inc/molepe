@@ -14,7 +14,7 @@ class LocationsController extends Controller
 
     //
     public function index(){
-        $assetlocations = Location::latest()->paginate(8);
+        $assetlocations = Location::latest()->paginate(15);
        return view('assets.locations.index')->with('assetlocations',$assetlocations);
     }
 

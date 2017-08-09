@@ -2,7 +2,7 @@
 @section('content')
 <div class="container">
     <div class="row">
-            <a href="{{route('assetclass.create')}}" class="btn btn-primary col-xs-12 col-sm-6 col-md-4 pull-right">Add Asset Class</a>
+            <a href="{{route('assetClass.create')}}" class="btn btn-primary col-xs-12 col-sm-6 col-md-4 pull-right">Add Asset Class</a>
             <div class="panel panel-default">
                 <div class="panel-heading">List Of Asset Classes</div>
                 <div class="panel-body">
@@ -15,20 +15,20 @@
                             </tr>
                         </thead>
                         <tbody>
-                         @foreach($assetclasses as $assetclass)
+                         @foreach($assetClasses as $assetClass)
                             <tr>
                                 <td>
-                                    {{$assetclass->name}}
+                                    {{$assetClass->name}}
                                 </td>
                                 <td>
-                                    {{$assetclass->description}}
+                                    {{$assetClass->description}}
                                 </td>
                                 <td>
                                     <div class="col-xs-12 button-flex">
-                                        <a href="{{route('assetclass.edit',$assetclass->id)}}" class="btn btn-info btn-xs margin-right-5"><i class="fa fa-edit"></i> Edit</a>
-                                        <form action="{{route('assetclass.delete',['id'=>$assetclass->id])}}" method="POST">
+                                        <a href="{{route('assetClass.edit',$assetClass->id)}}" class="btn btn-info btn-xs margin-right-5"><i class="fa fa-edit"></i> Edit</a>
+                                        <form action="{{route('assetClass.delete',['id'=>$assetClass->id])}}" method="POST">
                                             {{csrf_field()}}
-                                            <input type="text" name="file-name"class="" value="{{$assetclass->id}}" hidden>
+                                            <input type="text" name="file-name"class="" value="{{$assetClass->id}}" hidden>
                                             <button type="submit" class="btn btn-danger btn-xs margin-right-5"><i class="fa fa-trash-o"></i> Remove</button>
                                         </form>
                                     </div>
@@ -39,7 +39,7 @@
                         </tbody>
                     </table>
                     <div class="row text-center">
-                        {{ $assetclasses->links() }}
+                        {{ $assetClasses->links() }}
                     </div>
                 </div>
             </div>

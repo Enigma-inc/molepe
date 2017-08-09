@@ -2,6 +2,7 @@
 @section('content')
 <div class="container">
     <div class="row">
+            <a href="{{route('asset.create')}}" class="btn btn-primary col-xs-12 col-sm-6 col-md-4 pull-right">Add Asset</a>
             <div class="panel panel-default">
                 <div class="panel-heading">List Of Assets</div>
                 <div class="panel-body">
@@ -15,7 +16,7 @@
                                 <th>Zone</th>
                                 <th>Functional Group</th>
                                 <th>Captured</th>
-                                <th style="width: 20%;">Update entries</th>
+                                <th>Update entries</th>
                                 
                             </tr>
                         </thead>

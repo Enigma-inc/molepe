@@ -15,8 +15,8 @@ class AssetClassesController extends Controller
     }
 
     public function index(){
-       $assetclasses = AssetClass::latest()->paginate(8);
-       return view('assets.assetclasses.index')->with('assetclasses',$assetclasses);
+       $assetClasses = AssetClass::latest()->paginate(15);
+       return view('assets.assetclasses.index')->with('assetClasses',$assetClasses);
     }
 
     public function store(assetClassesRequest $request){
@@ -28,20 +28,20 @@ class AssetClassesController extends Controller
     }
 
     public function edit($id){
-        $assetclass = AssetClass::find($id);
-        if(!empty($assetclass->toArray()))
+        $assetClass = AssetClass::find($id);
+        if(!empty($assetClass->toArray()))
         {
-            return view('assets.assetclasses.edit')->with(['assetclass'=>$assetclass]);
+            return view('assets.assetclasses.edit')->with(['assetClass'=>$assetClass]);
         } 
         else{
             return redirect()->route('assetclass.list');
         }
     }
-    public function update(assetClassesRequest $request, AssetClass $assetclass){
+    public function update(assetClassesRequest $request, AssetClass $assetClass){
     //  dd($request->toArray());
-        $assetclass->name = $request->input('name');
-        $assetclass ->description = $request->input('description');
-        $assetclass -> save();
+        $assetClass->name = $request->input('name');
+        $assetClass ->description = $request->input('description');
+        $assetClass -> save();
         return redirect()->route('assetclass.list');
     }
     public function create(){
@@ -49,7 +49,7 @@ class AssetClassesController extends Controller
     }
 
     public function destroy($id){
-        $deletedassetclass = AssetClass::find($id)
+        $deletedAssetClass = AssetClass::find($id)
                                          ->delete();
          return redirect()->route('assetclass.list');
     }

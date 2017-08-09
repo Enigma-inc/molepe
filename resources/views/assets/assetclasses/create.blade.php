@@ -8,7 +8,7 @@
             <div class="panel panel-default">
 
                 <div class="panel-body">
-                    {!! Form::open(['method' => 'POST', 'route' => 'assetclass.store', 'class' => 'form-horizontal']) !!}
+                    {!! Form::open(['method' => 'POST', 'route' => 'assetClass.store', 'class' => 'form-horizontal']) !!}
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">

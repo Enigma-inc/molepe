@@ -13,13 +13,13 @@ class AssetSubclassesController extends Controller
     }
 
     public function index(){
-       $assetsubclasses = AssetSubclass::latest()->paginate(8);
-       return view('assets.assetsubclasses.index')->with('assetsubclasses',$assetsubclasses);
+       $assetSubclasses = AssetSubclass::latest()->paginate(15);
+       return view('assets.assetsubclasses.index')->with(['assetSubclasses'=>$assetSubclasses]);
     }
 
     public function create(){
-        $assetclasses = AssetClass::all();
-        return view('assets.assetsubclasses.create')->with('assetclasses',$assetclasses);
+        $assetClasses = AssetClass::all();
+        return view('assets.assetsubclasses.create')->with(['assetClasses'=>$assetClasses]);
     }
     
     public function show(){
@@ -40,29 +40,29 @@ class AssetSubclassesController extends Controller
     }
 
     public function edit($id){
-        $assetsubclass = AssetSubclass::find($id);
-        $assetclasses = AssetClass::all();
+        $assetSubclass = AssetSubclass::find($id);
+        $assetClasses = AssetClass::all();
         if(!empty($assetsubclass->toArray()))
         {
-            return view('assets.assetsubclasses.edit')->with(['assetsubclass'=>$assetsubclass, 'assetclasses'=>$assetclasses]);
+            return view('assets.assetsubclasses.edit')->with(['assetSubclass'=>$assetSubclass, 'assetclasses'=>$assetClasses]);
         } 
         else{
-            return redirect()->route('assetsubclass.list');
+            return redirect()->route('assetSubclass.list');
         }
     }
 
-    public function update(assetSubclassesRequest $request,AssetSubclass $assetsubclass ){
-        $assetsubclass ->name = $request->input('name');
-        $assetsubclass->description = $request->input('description');
-        $assetsubclass->min_useful_life = $request->input('min_useful_life');
-        $assetsubclass->max_useful_life = $request -> input('max_useful_life');
-        $assetsubclass->asset_class_id = $request ->input('asset-class');
-        $assetsubclass->save();
-        return redirect()->route('assetsubclass.list');   
+    public function update(assetSubclassesRequest $request,AssetSubclass $assetSubclass ){
+        $assetSubclass ->name = $request->input('name');
+        $assetSubclass->description = $request->input('description');
+        $assetSubclass->min_useful_life = $request->input('min_useful_life');
+        $assetSubclass->max_useful_life = $request -> input('max_useful_life');
+        $assetSubclass->asset_class_id = $request ->input('asset-class');
+        $assetSubclass->save();
+        return redirect()->route('assetSubclass.list');   
     }
 
     public function destroy($id){
-        $deletedassetsubclass = AssetSubclass::find($id)->delete();
-        return redirect()->route('assetsubclass.list');
+        $deletedAssetSubclass = AssetSubclass::find($id)->delete();
+        return redirect()->route('assetSubclass.list');
     }
 }
