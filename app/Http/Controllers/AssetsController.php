@@ -6,6 +6,7 @@ use App\Zone;
 use App\AssetSubclass;
 use App\Location;
 use App\Coordinates;
+use App\AssetClass;
 use App\AssetGroup;
 use Illuminate\Http\Request;
 
@@ -42,9 +43,23 @@ class AssetsController extends Controller
         
     }
     
-    public function showBrief()
+    public function show($id)
     {
+        $asset = Asset::find($id);
+        $location = Location::all();
+        $functionalGroup = AssetGroup::all();
+        $zone = Zone::all();
+        $class = AssetClass::all();
+        $subclass = AssetSubclass::all();
 
+        return view('assets.show')
+             ->with(['asset' => $asset,
+                     'location' => $location,
+                     'functionalGroup' => $functionalGroup,
+                     'zone' => $zone,
+                     'class' => $class,
+                     'subclass' => $subclass
+                    ]);
     }
 
     public function store(Request $request){
@@ -96,8 +111,6 @@ class AssetsController extends Controller
 
     public function update(Request $request, Asset $asset)
     { 
-        //dd($request->toArray());
-        $asset ->asset_number  = $request->input('asset_number');
         $asset ->description = $request->input('description');
         $asset->dimensions = $request->input('dimensions');
         $asset->construction = $request->input('construction');

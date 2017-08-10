@@ -13,7 +13,7 @@
                                 <th>Subclass Description</th>                                
                                 <th>Minimum Useful Life</th> 
                                 <th>Maximum Useful Life</th>
-                                <th>Actions</th>                               
+                                <th>Action</th>                               
                             </tr>
                         </thead>
                         <tbody>

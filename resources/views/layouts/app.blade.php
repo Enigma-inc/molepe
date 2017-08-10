@@ -37,7 +37,21 @@
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
-                        &nbsp;
+                        <li><a href="{{ route('asset.list') }}">Asset Register</a></li>
+                        <li class="dropdown"> 
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                Configuration
+                                <span class="caret"></span>
+                            </a>
+
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="{{route('assetClass.list')}}">Classes</a></li>
+                                <li><a href="{{route('assetSubclass.list')}}">Subclasses</a></li>
+                                <li><a href="{{route('location.list')}}">Locations</a></li>
+                                <li><a href="{{route('zone.list')}}">Zones</a></li>
+                                <li><a href="{{route('asset-group.list')}}">Functional Groups</a></li>
+                            </ul>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->

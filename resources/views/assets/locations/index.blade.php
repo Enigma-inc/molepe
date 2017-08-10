@@ -13,7 +13,7 @@
                                 <th>Location Description</th>                                
                                 <th>Location(Longitude)</th> 
                                 <th>Location(Latitude)</th>
-                                <th>Actions</th>                               
+                                <th>Action</th>                               
                             </tr>
                         </thead>
                         <tbody>

@@ -16,7 +16,7 @@
                                 <th>Zone</th>
                                 <th>Functional Group</th>
                                 <th>Captured</th>
-                                <th>Update entries</th>
+                                <th>Action</th>
                                 
                             </tr>
                         </thead>
@@ -49,10 +49,10 @@
                                         <div class="dropdown">
                                             <button class="btn btn-default btn-xs dropdown-toggle" type="button" data-toggle="dropdown">
                                             <i class="fa fa-list text-primary"></i>
-                                                Edit Fields
+                                            
                                             <span class="caret"></span></button>
                                                 <ul class="dropdown-menu">
-                                                    <li><a href="{{route('asset.edit',$asset->id)}}"><i class="fa fa-file-text text-primary"></i> Identification</a></li>
+                                                    <li><a href="{{route('asset.show',$asset->id)}}"><i class="fa fa-file-text text-primary"></i> Identification</a></li>
                                                     <li><a href="#"><i class="fa fa-long-arrow-down text-primary"></i> Acquisition</a></li>
                                                     <li><a href="#"><i class="fa fa-users text-primary"></i> Accountability</a></li>
                                                     <li><a href="#"><i class="fa fa-sliders text-primary"></i> Performance</a></li>
@@ -61,11 +61,11 @@
                                                     <li><a href="#"><i class="fa fa-warning text-primary"></i> Management & Risk</a></li>                                                
                                                 </ul>
                                         </div>
-                                        <form action="{{route('asset.delete',['id'=>$asset->id])}}" method="POST">
+                                        <!--<form action="{{route('asset.delete',['id'=>$asset->id])}}" method="POST">
                                             {{csrf_field()}}
                                             <input type="text" name="file-name"class="" value="{{$asset->id}}" hidden>
                                             <button type="submit" class="btn btn-danger btn-xs margin-right-5"><i class="fa fa-trash-o"></i> Remove</button>
-                                        </form>
+                                        </form>-->
                                     </div>    
                                 </td>
                             </tr>

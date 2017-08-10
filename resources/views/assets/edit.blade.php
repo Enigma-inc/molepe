@@ -6,20 +6,6 @@
                 <div class="panel-body">
                 {!! Form::model($asset,['method'=>'PATCH','route' => ['asset.update', $asset->id],'class'=>'form-horizontal']) !!}
                         {{ csrf_field() }}
-
-                        <div class="form-group{{ $errors->has('asset-number') ? ' has-error' : '' }}">
-                            <label for="asset-number" class="col-md-4 control-label">Asset Number</label>
-
-                            <div class="col-md-6">
-                            {!! Form::text('asset_number',null,['class' => 'form-control'])!!}
-                                @if ($errors->has('asset-number'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('asset-number') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
                         
                         <div class="form-group{{ $errors->has('asset-description') ? ' has-error' : '' }}">
                             <label for="description" class="col-md-4 control-label">Asset Description</label>
