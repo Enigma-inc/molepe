@@ -58,7 +58,7 @@
                             <label for="identifier" class="col-md-4 control-label">Asset specific identifiers</label>
 
                             <div class="col-md-6">                            
-                            {!! Form::text('asset-identifier', null, ['class' => 'form-control']) !!}
+                            {!! Form::text('identifier', null, ['class' => 'form-control']) !!}
                                 @if ($errors->has('identifier'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('identifier') }}</strong>

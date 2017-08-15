@@ -14,12 +14,12 @@ class AssetSubclassesController extends Controller
 
     public function index(){
        $assetSubclasses = AssetSubclass::latest()->paginate(15);
-       return view('assets.assetsubclasses.index')->with(['assetSubclasses'=>$assetSubclasses]);
+       return view('assets.identification.assetsubclasses.index')->with(['assetSubclasses'=>$assetSubclasses]);
     }
 
     public function create(){
         $assetClasses = AssetClass::all();
-        return view('assets.assetsubclasses.create')->with(['assetClasses'=>$assetClasses]);
+        return view('assets.identification.assetsubclasses.create')->with(['assetClasses'=>$assetClasses]);
     }
     
     public function show(){
@@ -44,7 +44,7 @@ class AssetSubclassesController extends Controller
         $assetClasses = AssetClass::all();
         if(!empty($assetsubclass->toArray()))
         {
-            return view('assets.assetsubclasses.edit')->with(['assetSubclass'=>$assetSubclass, 'assetclasses'=>$assetClasses]);
+            return view('assets.identification.assetsubclasses.edit')->with(['assetSubclass'=>$assetSubclass, 'assetclasses'=>$assetClasses]);
         } 
         else{
             return redirect()->route('assetSubclass.list');

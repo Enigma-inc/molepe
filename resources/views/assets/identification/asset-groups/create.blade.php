@@ -11,27 +11,27 @@
                     {!! Form::open(['method' => 'POST', 'route' => 'asset-group.store', 'class' => 'form-horizontal']) !!}
                         {{ csrf_field() }}
 
-                        <div class="form-group{{ $errors->has('asset-group-name') ? ' has-error' : '' }}">
-                            <label for="asset-group-name" class="col-md-4 control-label">Asset-Group Name</label></label>
+                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+                            <label for="name" class="col-md-4 control-label">Asset-Group Name</label></label>
 
                             <div class="col-md-6">                            
-                            {!! Form::text('asset-group-name', null, ['class' => 'form-control']) !!}
-                                @if ($errors->has('asset-group-name'))
+                            {!! Form::text('name', null, ['class' => 'form-control']) !!}
+                                @if ($errors->has('name'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('asset-group-name') }}</strong>
+                                        <strong>{{ $errors->first('name') }}</strong>
                                     </span> 
                                 @endif
                             </div>
                         </div>
 
-                        <div class="form-group{{ $errors->has('asset-group-description') ? ' has-error' : '' }}">
-                            <label for="asset-group-description" class="col-md-4 control-label">Asset-Group Description</label>
+                        <div class="form-group{{ $errors->has('description') ? ' has-error' : '' }}">
+                            <label for="description" class="col-md-4 control-label">Asset-Group Description</label>
 
                             <div class="col-md-6">
-                            {!! Form::textarea('asset-group-description',null,['class' => 'form-control']) !!}
-                                @if ($errors->has('asset-group-description'))
+                            {!! Form::textarea('description',null,['class' => 'form-control']) !!}
+                                @if ($errors->has('description'))
                                 <span class="help-block">
-                                        <strong>{{ $errors->first('asset-group-description') }}</strong>
+                                        <strong>{{ $errors->first('description') }}</strong>
                                 </span> 
                                 @endif
                             </div>

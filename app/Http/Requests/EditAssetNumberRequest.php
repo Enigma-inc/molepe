@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ZoneRequest extends FormRequest
+class EditAssetNumberRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,8 +24,7 @@ class ZoneRequest extends FormRequest
     public function rules()
     {
         return [
-            'zone-name' => 'required',
-            'zone-description' => 'required'
+            'asset_number' => 'required'
         ];
     }
 }

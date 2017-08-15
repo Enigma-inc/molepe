@@ -2,6 +2,45 @@
 @section('content')
 <div class="container">
     <div class="row">
+            <div class="col-xs-4 button-flex pull-right">
+                <a href="{{route('asset.identification.edit',$asset->id)}}" class="btn btn-info btn-xs"><i class="fa fa-edit"></i> Edit Asset Identification</a>
+                <button class="btn btn-info btn-xs" data-toggle="modal" data-target="#myModal"><i class="fa fa-edit"></i> Edit Asset Number</button>
+                <div id="myModal" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
+
+                        <!-- Modal content--> 
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Edit Asset Number</h4>
+                        </div>
+                        <div class="modal-body">
+                            {!! Form::model($asset,['method'=>'PATCH','route' => ['asset.number.update', $asset->id],'class'=>'form-horizontal']) !!}
+                                {{ csrf_field() }}
+                                <div class="form-group{{ $errors->has('asset_number') ? ' has-error' : '' }}">
+                                    <div class="col-md-6">                            
+                                    {!! Form::text('asset_number', null, ['class' => 'form-control']) !!}
+                                        @if ($errors->has('asset_number'))
+                                            <span class="help-block">
+                                                <strong>{{ $errors->first('asset_number') }}</strong>
+                                            </span> 
+                                        @endif
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="submit" class="btn btn-primary">
+                                        Submit
+                                    </button>
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">
+                                        Close
+                                    </button>
+                                </div>
+                            {!! Form::close() !!}                                        
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
             <div class="panel panel-default bordered">
                 <div class="panel-heading">Asset Number - <strong>{{$asset->asset_number}}</strong></div>
                     
@@ -55,16 +94,6 @@
                             </div>
                             <hr>
 
-                            <div class="row">
-                                <div class="col-xs-12 button-flex">
-                                    <a href="{{route('asset.edit',$asset->id)}}" class="btn btn-info btn-xs margin-right-5"><i class="fa fa-trash-o"></i> Edit</a>
-                                    <form action="{{route('asset.delete',['id'=>$asset->id])}}" method="POST">
-                                        {{csrf_field()}}
-                                        <input type="text" name="file-name"class="" value="{{$asset->id}}" hidden>
-                                        <button type="submit" class="btn btn-danger btn-xs margin-right-5"><i class="fa fa-trash-o"></i> Remove</button>
-                                    </form>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>

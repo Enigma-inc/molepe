@@ -8,6 +8,9 @@ use App\Location;
 use App\Coordinates;
 use App\AssetClass;
 use App\AssetGroup;
+use App\Http\Requests\AssetRequest;
+use App\Http\Requests\EditAssetIdentificationRequest;
+use App\Http\Requests\EditAssetNumberRequest;
 use Illuminate\Http\Request;
 
 class AssetsController extends Controller
@@ -62,7 +65,8 @@ class AssetsController extends Controller
                     ]);
     }
 
-    public function store(Request $request){
+    public function store(AssetRequest $request)
+    {
         $assetObject = Asset::create([
             'asset_number' => request('asset-number'),
             'description' => request('asset-description'),
@@ -79,12 +83,13 @@ class AssetsController extends Controller
          return redirect()->route('asset.list');
     }
 
-    public function edit($id)
+    public function editAssetIdentification($id)
     {
         $asset = Asset::find($id);
-        $assetFunctionGroup = AssetGroup::find($asset->functional_group_id); 
+        $selectedFunctionGroup = AssetGroup::find($asset->functional_group_id); 
         $selectedZone = Zone::find($asset->zone_id);
         $selectedAssetClass = AssetSubclass::find($asset->class_id);
+        $selectedLocation = Location::find($asset->location_id);
         
         $parentAssets = Asset::all();
         $assetZones = Zone::all();
@@ -99,32 +104,44 @@ class AssetsController extends Controller
                                               'assetSubclasses' => $assetSubclasses,
                                               'assetLocations' => $assetLocations,
                                               'assetGroups' => $assetGroups,
-                                              'assetFunctionGroup' => $assetFunctionGroup,
+                                              'selectedFunctionGroup' => $selectedFunctionGroup,
                                               'selectedZone'=>$selectedZone,
-                                              'selectedAssetClass'=>$selectedAssetClass
+                                              'selectedAssetClass'=>$selectedAssetClass,
+                                              'selectedLocation' => $selectedLocation
                                             ]);
         }else{
             return redirect()->route('asset.list');
         }
     }
 
-
-    public function update(Request $request, Asset $asset)
+    public function updateAssetIdentification(EditAssetIdentificationRequest $request, Asset $asset)
     { 
         $asset ->description = $request->input('description');
         $asset->dimensions = $request->input('dimensions');
         $asset->construction = $request->input('construction');
         $asset->specific_identifiers = $request->input('specific_identifiers');
-        $asset->class_id = $request->input('asset-subclass');
-        $asset->zone_id = $request->input('asset-zone');
-        $asset->location_id = $request->input('asset-location');
-        $asset->functional_group_id = $request->input('asset-group');       
-        $asset->parent_id = $request->input('parent-asset');
+        $asset->class_id = $request->input('subclass');
+        $asset->zone_id = $request->input('zone');
+        $asset->location_id = $request->input('location');
+        $asset->functional_group_id = $request->input('group');       
+        $asset->parent_id = $request->input('parent');
         $asset->save();
-         return redirect()->route('asset.list');
+
+        return redirect()->route('asset.list');
     }
 
-   public function destroy($id){
+   public function updateAssetNumber(EditAssetNumberRequest $request, $id)
+   {
+       $asset = Asset::find($id);
+       
+       $asset->asset_number = $request->input('asset_number');
+       $asset->save();
+
+       return redirect()->route('asset.list');
+   }
+
+   public function destroy($id)
+   {
        $deletedasset = Asset::find($id)->delete();
        return redirect()->route('asset.list'); 
    }
