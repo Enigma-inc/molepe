@@ -69,8 +69,9 @@ Route::patch('assets/{id}/identification/update','AssetsController@updateAssetId
 Route::patch('assets/{id}/asset-number/update','AssetsController@updateAssetNumber')->name('asset.number.update');
 
 //Asset Accountability
-Route::get('assets/accountability', 'AssetsAccountability@index')->name('accountability');
-
+Route::get('assets/accountability', 'AssetsAccountabilityController@index')->name('accountability.list');
+Route::get('assets/accountability/create', 'AssetsAccountabilityController@create')->name('accountability.create');
+Route::post('assets/accountability/store', 'AssetsAccountabilityController@store')->name('accountability.store');
 
 Route::post('assets/{id}/delete','AssetsController@destroy')->name('asset.delete');
 

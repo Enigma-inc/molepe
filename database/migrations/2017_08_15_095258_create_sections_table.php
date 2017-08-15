@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAccountingInfoTable extends Migration
+class CreateSectionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,12 @@ class CreateAccountingInfoTable extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('sections', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('name');  
+            $table->softDeletes();          
+            $table->timestamps();
+        });        
     }
 
     /**
@@ -23,6 +28,6 @@ class CreateAccountingInfoTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('sections');        
     }
 }

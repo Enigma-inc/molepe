@@ -5,12 +5,10 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Prettus\Repository\Contracts\Transformable;
 use Prettus\Repository\Traits\TransformableTrait;
-use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Asset extends Model implements Transformable
 {
     use TransformableTrait;
-    use SoftDeletes;
 
     protected $dates = ['created_at'];
 
@@ -40,5 +38,4 @@ class Asset extends Model implements Transformable
      {
          return $this->belongsTo(Asset::class, 'parent_id');
      }
-
 }
