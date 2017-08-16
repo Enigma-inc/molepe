@@ -11,14 +11,14 @@
                     {!! Form::open(['method' => 'POST', 'route' => 'accountability.store', 'class' => 'form-horizontal']) !!}
                         {{ csrf_field() }}
 
-                        <div class="form-group{{ $errors->has('asset-number') ? ' has-error' : '' }}">
-                            <label for="asset-number" class="col-md-4 control-label">Asset Number</label>
+                        <div class="form-group{{ $errors->has('custodian') ? ' has-error' : '' }}">
+                            <label for="custodian" class="col-md-4 control-label">Custodian</label>
 
                             <div class="col-md-6">                            
-                            {!! Form::text('asset-number',null, ['class' => 'form-control']) !!}
-                                @if ($errors->has('asset-number'))
+                            {!! Form::text('custodian',null, ['class' => 'form-control']) !!}
+                                @if ($errors->has('custodian'))
                                 <span class="help-block">
-                                        <strong>{{ $errors->first('asset-number') }}</strong>
+                                        <strong>{{ $errors->first('custodian') }}</strong>
                                 </span> 
                                 @endif
                             </div>

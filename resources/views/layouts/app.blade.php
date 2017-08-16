@@ -52,6 +52,21 @@
                                 <li><a href="{{route('asset-group.list')}}">Functional Groups</a></li>
                             </ul>
                         </li>
+
+                        <li class="dropdown"> 
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                Accountability
+                                <span class="caret"></span>
+                            </a>
+
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="{{route('custodian.list')}}">Custodians</a></li>
+                                <li><a href="{{route('department.list')}}">Departments</a></li>
+                                <li><a href="{{route('section.list')}}">Sections</a></li>
+                                <li><a href="{{route('cost-center.list')}}">Cost Centers</a></li>
+                                <li><a href="#">Tranfers</a></li>
+                            </ul>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->

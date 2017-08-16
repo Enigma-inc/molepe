@@ -68,11 +68,40 @@ Route::get('assets/{id}/identification/edit','AssetsController@editAssetIdentifi
 Route::patch('assets/{id}/identification/update','AssetsController@updateAssetIdentification')->name('asset.identification.update');
 Route::patch('assets/{id}/asset-number/update','AssetsController@updateAssetNumber')->name('asset.number.update');
 
+Route::post('assets/{id}/delete','AssetsController@destroy')->name('asset.delete');
+
 //Asset Accountability
 Route::get('assets/accountability', 'AssetsAccountabilityController@index')->name('accountability.list');
 Route::get('assets/accountability/create', 'AssetsAccountabilityController@create')->name('accountability.create');
 Route::post('assets/accountability/store', 'AssetsAccountabilityController@store')->name('accountability.store');
 
-Route::post('assets/{id}/delete','AssetsController@destroy')->name('asset.delete');
+//Cost Centers
+Route::get('assets/accountability/cost-centers', 'CostCentersController@index')->name('cost-center.list');
+Route::post('assets/accountability/cost-centers/store', 'CostCentersController@store')->name('cost-center.store');
+Route::patch('assets/accountability/cost-centers/{id}/update', 'CostCentersController@update')->name('cost-center.update');
+Route::get('assets/accountability/cost-centers/{id}/edit', 'CostCentersController@edit')->name('cost-center.edit');
+Route::post('assets/accountability/cost-centers/{id}/delete', 'CostCentersController@destroy')->name('cost-center.delete');
+
+//Custodians
+Route::get('assets/accountability/custodians', 'CustodiansController@index')->name('custodian.list');
+Route::post('assets/accountability/custodians/store', 'CustodiansController@store')->name('custodian.store');
+Route::patch('assets/accountability/custodians/{id}/update', 'CustodiansController@update')->name('custodian.update');
+Route::get('assets/accountability/custodians/{id}/edit', 'CustodiansController@edit')->name('custodian.edit');
+Route::post('assets/accountability/custodians/{id}/delete', 'CustodiansController@destroy')->name('custodian.delete');
+
+//Departments
+Route::get('assets/accountability/departments', 'DepartmentsController@index')->name('department.list');
+Route::post('assets/accountability/departments/store', 'DepartmentsController@store')->name('department.store');
+Route::patch('assets/accountability/departments/{id}/update', 'DepartmentsController@update')->name('department.update');
+Route::get('assets/accountability/departments/{id}/edit', 'DepartmentsController@edit')->name('department.edit');
+Route::post('assets/accountability/departments/{id}/delete', 'DepartmentsController@destroy')->name('department.delete');
+
+//Sections
+Route::get('assets/accountability/sections', 'SectionsController@index')->name('section.list');
+Route::post('assets/accountability/sections/store', 'SectionsController@store')->name('section.store');
+Route::get('assets/accountability/section/{id}/edit', 'SectionsController@edit')->name('section.edit');
+Route::patch('assets/accountability/sections/{id}/update', 'SectionsController@update')->name('section.update');
+Route::post('assets/accountability/section/{id}/delete', 'SectionsController@destroy')->name('section.delete');
+
 
 
