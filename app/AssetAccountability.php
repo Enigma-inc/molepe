@@ -14,6 +14,8 @@ class AssetAccountability extends Model
 
     protected $guarded = ['id'];
 
+    protected $fillable = ['custodian', 'department', 'section', 'costCenter'];
+
     public function custodian()
      {
          return $this->belongsTo(Custodian::class);

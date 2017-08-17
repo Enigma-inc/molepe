@@ -6,7 +6,6 @@
                 <div class="panel-body">
                 {!! Form::model($asset,['method'=>'PATCH','route' => ['asset.identification.update', $asset->id],'class'=>'form-horizontal']) !!}
                         {{ csrf_field() }}
-                        
                         <div class="form-group{{ $errors->has('description') ? ' has-error' : '' }}">
                             <label for="description" class="col-md-4 control-label">Asset Description</label>
 

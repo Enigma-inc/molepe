@@ -48,7 +48,8 @@
                     <table class="table table-bordered">
                         <thead>
                             <tr>
-                                <th>Name</th>                            
+                                <th>Name</th>  
+                                <th>Action</th>                          
                             </tr>
                         </thead>
                         <tbody>
@@ -56,6 +57,16 @@
                             <tr>
                                 <td>
                                     {{$section->name}}
+                                </td>
+                                <td>
+                                    <div class="col-xs-12 button-flex">
+                                        <a href="{{route('section.edit', $section->id)}}" class="btn btn-info btn-xs margin-right-5"><i class="fa fa-edit"></i> Edit</a>
+                                        <form action="{{route('section.delete',['id'=>$section->id])}}" method="POST">
+                                            {{csrf_field()}}
+                                            <input type="text" name="file-name"class="" value="{{$section->id}}" hidden>
+                                            <button type="submit" class="btn btn-danger btn-xs margin-right-5"><i class="fa fa-trash-o"></i> Remove</button>
+                                        </form>
+                                    </div>
                                 </td>
                             </tr>
                          @endforeach

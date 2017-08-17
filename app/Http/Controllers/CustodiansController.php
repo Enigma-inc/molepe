@@ -29,9 +29,19 @@ class CustodiansController extends Controller
         return redirect()->route('custodian.list');
     }
 
-    public function update(Request $request, $id){
+    public function edit($id){
+        
         $custodian = Custodian::find($id);
 
+        if(!empty($custodian->toArray())){
+            return view('assets.accountability.custodians.edit')
+                   ->with('custodian', $custodian);
+        }else{
+            return redirect()->route('custodian.list');
+        }
+    }
+
+    public function update(Request $request, Custodian $custodian){
         $custodian->name = $request->input('name');
         $custodian->last_name = $request->input('last_name');
         $custodian->email = $request->input('email');
@@ -39,7 +49,6 @@ class CustodiansController extends Controller
         $custodian->save();
 
         return redirect()->route('custodian.list');
-
     }
 
     public function destroy($id)

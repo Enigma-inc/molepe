@@ -26,8 +26,18 @@ class CostCentersController extends Controller
         return redirect()->route('cost-center.list');
     }
 
-    public function update(Request $request, $id){
+    public function edit($id){
         $costCenter = CostCenter::find($id);
+
+        if(!empty($costCenter->toArray())){
+            return view('assets.accountability.cost-centers.edit')
+                   ->with('costCenter', $costCenter);
+        }else{
+            return redirect()->route('cost-center.list');
+        }
+    }
+
+    public function update(Request $request, CostCenter $costCenter){
 
         $costCenter->name = $request->input('name');
         $costCenter->save();
@@ -36,8 +46,8 @@ class CostCentersController extends Controller
     }
 
     public function destroy($id)
-   {
+    {
        $deletedCostCenter = CostCenter::find($id)->delete();
        return redirect()->route('cost-center.list'); 
-   }
+    }
 }

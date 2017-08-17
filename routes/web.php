@@ -78,22 +78,22 @@ Route::post('assets/accountability/store', 'AssetsAccountabilityController@store
 //Cost Centers
 Route::get('assets/accountability/cost-centers', 'CostCentersController@index')->name('cost-center.list');
 Route::post('assets/accountability/cost-centers/store', 'CostCentersController@store')->name('cost-center.store');
-Route::patch('assets/accountability/cost-centers/{id}/update', 'CostCentersController@update')->name('cost-center.update');
 Route::get('assets/accountability/cost-centers/{id}/edit', 'CostCentersController@edit')->name('cost-center.edit');
+Route::patch('assets/accountability/cost-centers/{id}/update', 'CostCentersController@update')->name('cost-center.update');
 Route::post('assets/accountability/cost-centers/{id}/delete', 'CostCentersController@destroy')->name('cost-center.delete');
 
 //Custodians
 Route::get('assets/accountability/custodians', 'CustodiansController@index')->name('custodian.list');
 Route::post('assets/accountability/custodians/store', 'CustodiansController@store')->name('custodian.store');
-Route::patch('assets/accountability/custodians/{id}/update', 'CustodiansController@update')->name('custodian.update');
 Route::get('assets/accountability/custodians/{id}/edit', 'CustodiansController@edit')->name('custodian.edit');
+Route::patch('assets/accountability/custodians/{id}/update', 'CustodiansController@update')->name('custodian.update');
 Route::post('assets/accountability/custodians/{id}/delete', 'CustodiansController@destroy')->name('custodian.delete');
 
 //Departments
 Route::get('assets/accountability/departments', 'DepartmentsController@index')->name('department.list');
 Route::post('assets/accountability/departments/store', 'DepartmentsController@store')->name('department.store');
-Route::patch('assets/accountability/departments/{id}/update', 'DepartmentsController@update')->name('department.update');
 Route::get('assets/accountability/departments/{id}/edit', 'DepartmentsController@edit')->name('department.edit');
+Route::patch('assets/accountability/departments/{id}/update', 'DepartmentsController@update')->name('department.update');
 Route::post('assets/accountability/departments/{id}/delete', 'DepartmentsController@destroy')->name('department.delete');
 
 //Sections

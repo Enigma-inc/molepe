@@ -116,7 +116,7 @@ class AssetsController extends Controller
 
     public function updateAssetIdentification(EditAssetIdentificationRequest $request, Asset $asset)
     { 
-        $asset ->description = $request->input('description');
+        $asset->description = $request->input('description');
         $asset->dimensions = $request->input('dimensions');
         $asset->construction = $request->input('construction');
         $asset->specific_identifiers = $request->input('specific_identifiers');

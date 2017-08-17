@@ -26,8 +26,18 @@ class SectionsController extends Controller
         return redirect()->route('section.list');
     }
 
-    public function update(Request $request, $id){
+    public function edit($id){
         $section = Section::find($id);
+
+        if(!empty($section->toArray())){
+            return view('assets.accountability.sections.edit')
+                   ->with('section', $section);
+        }else{
+            return redirect()->route('section.list');
+        }
+    }
+
+    public function update(Request $request, Section $section){
 
         $section->name = $request->input('name');
         $section->save();

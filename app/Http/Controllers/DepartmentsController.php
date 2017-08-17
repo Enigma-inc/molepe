@@ -26,8 +26,18 @@ class DepartmentsController extends Controller
         return redirect()->route('department.list');
     }
 
-    public function update(Request $request, $id){
+    public function edit($id){
         $department = Department::find($id);
+
+        if(!empty($department->toArray())){
+            return view('assets.accountability.departments.edit')
+                   ->with('department', $department);
+        }else{
+            return redirect()->route('department.list'); 
+        }
+    }
+
+    public function update(Request $request, Department $department){
 
         $department->name = $request->input('name');
         $department->save();
