@@ -10,8 +10,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Location extends Model implements Transformable
 {
     use TransformableTrait;
-
     use SoftDeletes;
+
     protected $dates = ['deleted_at'];
 
     protected $guarded=['id'];

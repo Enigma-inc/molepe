@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class CostCenter extends Model
 {
+    use SoftDeletes;
+    
     protected $dates = ['deleted_at'];
 
     protected $fillable = ['name'];

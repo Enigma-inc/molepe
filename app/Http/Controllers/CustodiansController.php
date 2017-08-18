@@ -53,7 +53,8 @@ class CustodiansController extends Controller
 
     public function destroy($id)
     {
-        $deletedCustodian = Custodian::find($id)->delete();
+        $deletedCustodian = Custodian::find($id)
+                            ->delete();
         
         return redirect()->route('custodian.list'); 
     }
