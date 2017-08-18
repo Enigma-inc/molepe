@@ -6,18 +6,30 @@
 <div class="row">
         <div class="col-md-8 col-md-offset-2"> 
             <div class="panel panel-default">
-
                 <div class="panel-body">
                     {!! Form::open(['method' => 'POST', 'route' => 'accountability.store', 'class' => 'form-horizontal']) !!}
                         {{ csrf_field() }}
-                        
+
+                        <div class="form-group{{ $errors->has('restrictions') ? ' has-error' : '' }}">
+                            <label for="restrictions" class="col-md-4 control-label">Restrictions</label>
+
+                            <div class="col-md-6">
+                            {!! Form::textarea('restrictions',null,['class' => 'form-control']) !!}
+                                @if ($errors->has('restriction'))
+                                <span class="help-block">
+                                        <strong>{{ $errors->first('restrictions') }}</strong>
+                                </span> 
+                                @endif
+                            </div>
+                        </div>
+
                         <div class="margin-bottom-40 form-group{{$errors->has('custodian') ? 'has-error' : ''}}">
                             <label for="custodian" class="col-md-4 control-label">Custodian</label>
                             <div class="col-md-6">
-                                <select name="custodian" id="parent-asset" class="form-control">
+                                <select name="custodian" id="custodian" class="form-control">
                                     <option value=""></option>
                                     @foreach($custodians as $custodian)
-                                        <option value="">{{$custodian->name}} {{$custodian->last_name}}</option>
+                                        <option value="{{$custodian->id}}">{{$custodian->name}} {{$custodian->last_name}}</option>
                                     @endforeach
                                 </select>
                                 @if($errors->has('custodian'))
@@ -34,7 +46,7 @@
                                 <select name="department" id="department" class="form-control">
                                     <option value=""></option>
                                     @foreach($departments as $department)
-                                        <option value="">{{$department->name}}</option>
+                                        <option value="{{$department->id}}">{{$department->name}}</option>
                                     @endforeach
                                 </select>
                                 @if($errors->has('department'))
@@ -51,7 +63,7 @@
                                 <select name="section" id="section" class="form-control">
                                     <option value=""></option>
                                     @foreach($sections as $section)
-                                        <option value="">{{$section->name}}</option>
+                                        <option value="{{$section->id}}">{{$section->name}}</option>
                                     @endforeach
                                 </select>
                                 @if($errors->has('section'))
@@ -63,12 +75,12 @@
                         </div>
 
                         <div class="margin-bottom-40 form-group{{$errors->has('costCenter') ? 'has-error' : ''}}">
-                            <label for="costCenter" class="col-md-4 control-label">Section</label>
+                            <label for="costCenter" class="col-md-4 control-label">Cost Center</label>
                             <div class="col-md-6">
                                 <select name="costCenter" id="costCenter" class="form-control">
                                     <option value=""></option>
                                     @foreach($costCenters as $costCenter)
-                                        <option value="">{{$costCenter->name}}</option>
+                                        <option value="{{$costCenter->id}}">{{$costCenter->name}}</option>
                                     @endforeach
                                 </select>
                                 @if($errors->has('costCenter'))

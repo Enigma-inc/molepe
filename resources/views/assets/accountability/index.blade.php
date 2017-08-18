@@ -14,16 +14,14 @@
                                 <th>Section</th>
                                 <th>Cost Center</th>
                                 <th>Restrictions</th>
-                                <th>Ownership</th>
-                                <th>Licence</th>
-                                <th>Transfers</th>                                
+                                <th>Action</th>                                
                             </tr>
                         </thead>
                         <tbody>
                          @foreach($assets as $asset)
                             <tr>
                                 <td>
-                                    {{$asset->custodian->name}}
+                                    {{$asset->custodian->name}} {{$asset->custodian->last_name}}
                                 </td>
                                 <td>
                                     {{$asset->department->name}}
@@ -38,13 +36,6 @@
                                     {{$asset->restrictions}}
                                 </td>
                                 <td>
-                                    {{$asset->ownership}}
-                                </td>
-                                <td>
-                                    {{$asset->licence}}
-                                </td>
-                                <td>
-                                    {{$asset->transfers}}    
                                 </td>
                             </tr>
                          @endforeach

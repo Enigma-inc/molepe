@@ -63,7 +63,7 @@ Route::post('locations/{id}/delete','LocationsController@destroy')->name('locati
 Route::get('assets','AssetsController@index')->name('asset.list');
 Route::get('assets/create','AssetsController@create')->name('asset.create');
 Route::post('assets/store','AssetsController@store')->name('asset.store');
-Route::get('assets/{id}/show','AssetsController@show')->name('asset.show');
+Route::get('assets/{id}/identification','AssetsController@showAssetIdentification')->name('asset.identification');
 Route::get('assets/{id}/identification/edit','AssetsController@editAssetIdentification')->name('asset.identification.edit');
 Route::patch('assets/{id}/identification/update','AssetsController@updateAssetIdentification')->name('asset.identification.update');
 Route::patch('assets/{id}/asset-number/update','AssetsController@updateAssetNumber')->name('asset.number.update');

@@ -52,7 +52,7 @@
                                             
                                             <span class="caret"></span></button>
                                                 <ul class="dropdown-menu">
-                                                    <li><a href="{{route('asset.show',$asset->id)}}"><i class="fa fa-file-text text-primary"></i> Identification</a></li>
+                                                    <li><a href="{{route('asset.identification',$asset->id)}}"><i class="fa fa-file-text text-primary"></i> Identification</a></li>
                                                     <li><a href="#"><i class="fa fa-long-arrow-down text-primary"></i> Acquisition</a></li>
                                                     <li><a href="{{route('accountability.list')}}"><i class="fa fa-users text-primary"></i> Accountability</a></li>
                                                     <li><a href="#"><i class="fa fa-sliders text-primary"></i> Performance</a></li>

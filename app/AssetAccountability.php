@@ -9,13 +9,10 @@ use Prettus\Repository\Traits\TransformableTrait;
 class AssetAccountability extends Model
 {
     use TransformableTrait;
-    use SoftDeletes;
     
     protected $dates = ['created_at'];
 
     protected $guarded = ['id'];
-
-    protected $fillable = ['custodian', 'department', 'section', 'costCenter'];
 
     public function custodian()
      {

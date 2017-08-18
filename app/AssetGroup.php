@@ -17,7 +17,7 @@ class AssetGroup extends Model implements Transformable
 
      public function Assets()
          {
-             return $this->hasMany(Asset::class,'functional_group_id');
+             return $this->hasMany(Asset::class, 'functional_group_id');
          }
 
 }

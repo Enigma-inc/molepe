@@ -20,7 +20,7 @@ class CreateAssetsAccountabilityTable extends Migration
             $table->integer('custodian_id')->unsigned();
             $table->integer('cost_center_id')->unsigned();
             $table->integer('section_id')->unsigned();
-            $table->timestamps();
+            $table->timestamps(); 
         });
 
         Schema::table('asset_accountabilities', function(Blueprint $table) {

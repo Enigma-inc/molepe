@@ -16,7 +16,8 @@ class AssetsAccountabilityController extends Controller
     }
 
     public function index(){
-        $assets = AssetAccountability::latest()->paginate(15);
+        $assets = AssetAccountability::latest()
+                ->paginate(15);
 
         return view('assets.accountability.index')->with('assets', $assets);
     }
@@ -36,11 +37,12 @@ class AssetsAccountabilityController extends Controller
     }
 
     public function store(Request $request){
-        AssetAccountability::create([
+        $accounability = AssetAccountability::create([
+            'restrictions' => request('restrictions'),
             'custodian_id' => request('custodian'),
             'department_id' => request('department'),
             'section_id' => request('section'),
-            'cost_center_id' => request('cost-center'),
+            'cost_center_id' => request('costCenter'),
         ]);
 
         return redirect()->route('accountability.list');

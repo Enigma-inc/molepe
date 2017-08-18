@@ -15,6 +15,6 @@ class Department extends Model
 
     public function Assets()
     {
-        return $this->hasMany(Asset::class,'department_id');
+        return $this->hasMany(Asset::class, 'department_id');
     }
 }

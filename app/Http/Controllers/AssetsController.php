@@ -46,7 +46,7 @@ class AssetsController extends Controller
         
     }
     
-    public function show($id)
+    public function showAssetIdentification($id)
     {
         $asset = Asset::find($id);
         $location = Location::all();
@@ -55,7 +55,7 @@ class AssetsController extends Controller
         $class = AssetClass::all();
         $subclass = AssetSubclass::all();
 
-        return view('assets.show')
+        return view('assets.identification.show')
              ->with(['asset' => $asset,
                      'location' => $location,
                      'functionalGroup' => $functionalGroup,
@@ -114,8 +114,10 @@ class AssetsController extends Controller
         }
     }
 
-    public function updateAssetIdentification(EditAssetIdentificationRequest $request, Asset $asset)
+    public function updateAssetIdentification(EditAssetIdentificationRequest $request, $id)
     { 
+       $asset = Asset::find($id);
+        dd($asset);
         $asset->description = $request->input('description');
         $asset->dimensions = $request->input('dimensions');
         $asset->construction = $request->input('construction');

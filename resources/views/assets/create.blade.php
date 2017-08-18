@@ -55,7 +55,7 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('identifier') ? ' has-error' : '' }}">
-                            <label for="identifier" class="col-md-4 control-label">Asset specific identifiers</label>
+                            <label for="identifier" class="col-md-4 control-label">Asset Specific Identifiers</label>
 
                             <div class="col-md-6">                            
                             {!! Form::text('identifier', null, ['class' => 'form-control']) !!}
