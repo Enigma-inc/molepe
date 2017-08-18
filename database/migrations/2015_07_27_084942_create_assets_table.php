@@ -18,7 +18,7 @@ class CreateAssetsTable extends Migration
             $table->string('description',200);
             $table->string('dimensions',100)->nullable();
             $table->string('construction',150)->nullable();
-            $table->string('specific_identifiers',200)->nullable();
+            $table->string('specific_identifiers',200)->nullable();            
             $table->timestamps();
         });
     }

@@ -9,7 +9,7 @@ class CreateTableChartOfAccounts extends Migration
      * Run the migrations.
      *
      * @return void
-     */
+     */ 
     public function up()
     {
         Schema::create('chart_of_accounts', function(Blueprint $table) {

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAssetsAccountabilityTable extends Migration
+class CreateAssetAccountabilitiesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -16,10 +16,12 @@ class CreateAssetsAccountabilityTable extends Migration
         Schema::create('asset_accountabilities', function(Blueprint $table){
             $table->increments('id');
             $table->text('restrictions');
-            $table->integer('department_id')->unsigned();
-            $table->integer('custodian_id')->unsigned();
-            $table->integer('cost_center_id')->unsigned();
-            $table->integer('section_id')->unsigned();
+            $table->integer('department_id')->unsigned()->nullable();
+            $table->integer('custodian_id')->unsigned()->nullable();
+            $table->integer('cost_center_id')->unsigned()->nullable();
+            $table->integer('section_id')->unsigned()->nullable();
+            $table->integer('asset_accountability_id')->unsigned()->nullable();
+            $table->foreign('asset_accountability_id')->references('id')->on('asset_accountabilities');
             $table->timestamps(); 
         });
 
