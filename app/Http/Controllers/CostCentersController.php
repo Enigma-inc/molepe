@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\CostCenter;
+use App\Http\Requests\AccountabilityCostCentersRequest;
 
 class CostCentersController extends Controller
 {
@@ -18,7 +19,7 @@ class CostCentersController extends Controller
                ->with('costCenters', $costCenters);
     }
 
-    public function store(Request $request){
+    public function store(AccountabilityCostCentersRequest $request){
         CostCenter::create([
             'name' => request('name')
         ]);
@@ -37,7 +38,7 @@ class CostCentersController extends Controller
         }
     }
 
-    public function update(Request $request, CostCenter $costCenter){
+    public function update(AccountabilityCostCentersRequest $request, CostCenter $costCenter){
 
         $costCenter->name = $request->input('name');
         $costCenter->save();

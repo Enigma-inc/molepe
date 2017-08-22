@@ -15,6 +15,6 @@ class Custodian extends Model
 
     public function Assets()
     {
-        return $this->hasMany(Asset::class, 'custodian_id');
+        return $this->hasMany(AssetAccountability::class, 'custodian_id');
     }
 }

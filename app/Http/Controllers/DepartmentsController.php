@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Department;
+use App\Http\Requests\AccountabilityDepartmentRequest;
 
 class DepartmentsController extends Controller
 {
@@ -18,7 +19,7 @@ class DepartmentsController extends Controller
                ->with('departments', $departments);
     }
 
-    public function store(Request $request){
+    public function store(AccountabilityDepartmentRequest $request){
         Department::create([
             'name' => request('name')
         ]);
@@ -37,7 +38,7 @@ class DepartmentsController extends Controller
         }
     }
 
-    public function update(Request $request, Department $department){
+    public function update(AccountabilityDepartmentRequest $request, Department $department){
 
         $department->name = $request->input('name');
         $department->save();

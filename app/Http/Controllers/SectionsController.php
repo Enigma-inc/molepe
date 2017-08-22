@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Section;
+use App\Http\Requests\AccountabilitySectionsRequest;
 
 class SectionsController extends Controller
 {
@@ -18,7 +19,7 @@ class SectionsController extends Controller
                ->with('sections', $sections);
     }
 
-    public function store(Request $request){
+    public function store(AccountabilitySectionsRequest $request){
         section::create([
             'name' => request('name')
         ]);

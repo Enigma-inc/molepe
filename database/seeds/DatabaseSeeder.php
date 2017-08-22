@@ -13,7 +13,10 @@ class DatabaseSeeder extends Seeder
         'asset_groups',
         'locations',
         'assets',
-        'users'
+        'users',
+        'custodians',
+        'departments',
+        'sections'
     ];
     
     /**
@@ -34,6 +37,9 @@ class DatabaseSeeder extends Seeder
         //$this->call(CoordinatesTableSeeder::class);
         $this->call(UserTableSeeder::class);
         $this->call(AssetsTableSeeder::class);
+        $this->call(CustodiansTableSeeder::class);
+        $this->call(DepartmentsTableSeeder::class);
+        $this->call(SectionsTableSeeder::class);
 
         Model::unguard();
     }

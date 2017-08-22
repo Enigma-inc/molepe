@@ -43,26 +43,14 @@ class AssetsController extends Controller
                                             'assetLocations' => $assetLocations,
                                             'assetGroups' => $assetGroups
                                             ]);
-        
     }
     
     public function showAssetIdentification($id)
     {
         $asset = Asset::find($id);
-        $location = Location::all();
-        $functionalGroup = AssetGroup::all();
-        $zone = Zone::all();
-        $class = AssetClass::all();
-        $subclass = AssetSubclass::all();
 
         return view('assets.identification.show')
-             ->with(['asset' => $asset,
-                     'location' => $location,
-                     'functionalGroup' => $functionalGroup,
-                     'zone' => $zone,
-                     'class' => $class,
-                     'subclass' => $subclass
-                    ]);
+             ->with(['asset' => $asset]);
     }
 
     public function store(AssetRequest $request)
@@ -95,7 +83,6 @@ class AssetsController extends Controller
         $assetZones = Zone::all();
         $assetSubclasses = AssetSubclass::all();
         $assetLocations = Location::all();
-        //$coordinates = Coordinates::all();
         $assetGroups = AssetGroup::all();
         if(!empty($asset->toArray())){
             return view('assets.edit')->with(['asset' => $asset,
@@ -114,14 +101,12 @@ class AssetsController extends Controller
         }
     }
 
-    public function updateAssetIdentification(EditAssetIdentificationRequest $request, $id)
+    public function updateAssetIdentification(Request $request, Asset $asset)
     { 
-       $asset = Asset::find($id);
-        dd($asset);
         $asset->description = $request->input('description');
         $asset->dimensions = $request->input('dimensions');
         $asset->construction = $request->input('construction');
-        $asset->specific_identifiers = $request->input('specific_identifiers');
+        $asset->specific_identifiers = $request->input('identifier');
         $asset->class_id = $request->input('subclass');
         $asset->zone_id = $request->input('zone');
         $asset->location_id = $request->input('location');

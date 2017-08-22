@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Custodian;
+use App\Http\Requests\AccountabilityCustodiansRequest;
 
 class CustodiansController extends Controller
 {
@@ -18,7 +19,7 @@ class CustodiansController extends Controller
                ->with('custodians', $custodians);
     }
 
-    public function store(Request $request){
+    public function store(AccountabilityCustodiansRequest $request){
         Custodian::create([
             'name' => request('name'),
             'last_name' => request('last_name'),
@@ -41,7 +42,7 @@ class CustodiansController extends Controller
         }
     }
 
-    public function update(Request $request, Custodian $custodian){
+    public function update(AccountabilityCustodiansRequest $request, Custodian $custodian){
         $custodian->name = $request->input('name');
         $custodian->last_name = $request->input('last_name');
         $custodian->email = $request->input('email');

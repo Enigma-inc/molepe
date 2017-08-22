@@ -18,24 +18,28 @@ class Asset extends Model implements Transformable
     {
         return $this->belongsTo(AssetSubclass::class,'class_id');
     }
-     public function zone()
-     {
-         return $this->belongsTo(Zone::class);
-     }
+    public function zone()
+    {
+        return $this->belongsTo(Zone::class);
+    }
     public function location()
     {
         return $this->belongsTo(Location::class);
     }
-     public function functionalGroup()
-     {
+    public function functionalGroup()
+    {
         return $this->belongsTo(AssetGroup::class);
-     }
-     public function childAssets()
-     {
-         return $this->hasMany(Asset::class, 'parent_id');
-     }
-     public function parent()
-     {
-         return $this->belongsTo(Asset::class, 'parent_id');
-     }
+    }
+    public function childAssets()
+    {
+        return $this->hasMany(Asset::class, 'parent_id');
+    }
+    public function parent()
+    {
+        return $this->belongsTo(Asset::class, 'parent_id');
+    }
+    public function assetAccountability()
+    {
+        return $this->hasOne(AssetAccountability::class);
+    }
 }

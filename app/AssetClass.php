@@ -21,9 +21,7 @@ class AssetClass extends Model implements Transformable
         return $this->hasMany(AssetSubclass::class,'asset_class_id');
     }
 
-
-
-    public static  function createAssetClass($name,$description)
+    public static  function createAssetClass($name, $description)
     {
         $assetClass=new static(compact('name','description'));
         //Raise Event for New Asset Class

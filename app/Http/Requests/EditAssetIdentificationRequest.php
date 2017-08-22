@@ -22,18 +22,17 @@ class EditAssetIdentificationRequest extends FormRequest
      * @return array
      */
     public function rules()
-    {                
-        return [            
+    {
+        return [
             'description' => 'required',
-            'identifier' => 'required',
-            'dimensions' => 'required',             
+            'dimensions' => 'required',                         
             'construction' => 'required',                    
-            'zone' => 'required',
+            'identifier' => 'required',
             'subclass' => 'required',
+            'zone' => 'required',
             'location' => 'required',
-            'parent' => 'required',
             'group' => 'required',
-        ];        
-                
+            'parent' => 'required',
+        ];
     }
 }

@@ -15,6 +15,6 @@ class CostCenter extends Model
 
     public function Assets()
     {
-        return $this->hasMany(Asset::class, 'cost_center_id');
+        return $this->hasMany(AssetAccountability::class, 'cost_center_id');
     }
 }

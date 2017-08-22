@@ -15,6 +15,6 @@ class Section extends Model
 
     public function Assets()
     {
-        return $this->hasMany(Asset::class, 'section_id');
+        return $this->hasMany(AssetAccountability::class, 'section_id');
     }
 }
