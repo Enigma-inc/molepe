@@ -8,6 +8,11 @@ use App\Location;
 use App\Coordinates;
 use App\AssetClass;
 use App\AssetGroup;
+use App\Custodian;
+use App\Department;
+use App\Section;
+use App\CostCenter;
+use App\AssetAccountability;
 use App\Http\Requests\AssetRequest;
 use App\Http\Requests\EditAssetIdentificationRequest;
 use App\Http\Requests\EditAssetNumberRequest;
@@ -125,12 +130,29 @@ class AssetsController extends Controller
        $asset->save();
 
        return redirect()->route('asset.list');
-   }
+    }
 
    public function destroy($id)
    {
        $deletedasset = Asset::find($id)->delete();
        return redirect()->route('asset.list'); 
    }
-    
+
+   public function assetAssignAccountability($id){
+
+        $asset = Asset::find($id);
+        $custodians = Custodian::all();
+        $departments = Department::all();
+        $sections = Section::all();
+        $costCenters = CostCenter::all();
+
+        return view('assets.accountability.assign-accountability')
+            ->with(['custodians' => $custodians,
+                    'departments' => $departments,
+                    'sections' => $sections,
+                    'costCenters' => $costCenters,
+                    'asset' => $asset
+                    ]);
+   }
+
 }

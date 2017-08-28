@@ -2,6 +2,11 @@
     display: flex;
     justify-content: space-between;
 }
+.content-flex {
+    display: flex;
+    justify-content: space-between;
+    padding-left: 10px;
+}
 .bordered{
     border-style: groove;
 }
@@ -23,12 +28,15 @@
             margin-bottom: 0;
         }
     }
+    .asset-info {
+        font-weight: 600;
+        font-size: 0.9em;
+    }
     .details-container {
         display: flex;
         justify-content: space-between;
         margin-top: 1em;
-        .asset-label,
-        .asset-info {
+        .asset-label{
             font-weight: 600;
             font-size: 0.9em;
         }

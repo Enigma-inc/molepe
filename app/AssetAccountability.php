@@ -3,7 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Prettus\Repository\Contracts\Transformable;
+use Prettus\Repository\Contracts\Transformable; 
 use Prettus\Repository\Traits\TransformableTrait;
 
 class AssetAccountability extends Model
@@ -32,6 +32,6 @@ class AssetAccountability extends Model
      }
      public function accountability()
      {
-         return $this->belongsTo(Asset::class);
+         return $this->hasOne(AssetAccountability::class);
      }
 }

@@ -22,6 +22,5 @@ class ZonesTableSeeder extends Seeder
                 'description'=>$fake->sentence(10)
             ]);
         }
-
     }
 }

@@ -1,13 +1,11 @@
-
 @extends('layouts.app')
-
 @section('content')
- 
 <div class="row">
         <div class="col-md-8 col-md-offset-2"> 
             <div class="panel panel-default">
+                <div class="panel-heading">Assign Asset Accountability</div>
                 <div class="panel-body">
-                    {!! Form::open(['method' => 'POST', 'route' => 'accountability.store', 'class' => 'form-horizontal']) !!}
+                    {!! Form::open(['method' => 'POST', 'route' => ['accountability.store', $asset->id], 'class' => 'form-horizontal']) !!}
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('restrictions') ? ' has-error' : '' }}">
@@ -15,7 +13,7 @@
 
                             <div class="col-md-6">
                             {!! Form::textarea('restrictions',null,['class' => 'form-control']) !!}
-                                @if ($errors->has('restriction'))
+                                @if ($errors->has('restrictions'))
                                 <span class="help-block">
                                         <strong>{{ $errors->first('restrictions') }}</strong>
                                 </span> 

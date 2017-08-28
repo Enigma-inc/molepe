@@ -20,8 +20,6 @@ class CreateAssetAccountabilitiesTable extends Migration
             $table->integer('custodian_id')->unsigned()->nullable();
             $table->integer('cost_center_id')->unsigned()->nullable();
             $table->integer('section_id')->unsigned()->nullable();
-            $table->integer('asset_accountability_id')->unsigned()->nullable();
-            $table->foreign('asset_accountability_id')->references('id')->on('asset_accountabilities');
             $table->timestamps(); 
         });
 

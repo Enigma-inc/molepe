@@ -16,7 +16,9 @@ class DatabaseSeeder extends Seeder
         'users',
         'custodians',
         'departments',
-        'sections'
+        'sections',
+        'cost_centers',
+        'asset_accountabilities'
     ];
     
     /**
@@ -34,12 +36,13 @@ class DatabaseSeeder extends Seeder
         $this->call(ZonesTableSeeder::class);
         $this->call(LocationTableSeeder::class);
         $this->call(AssetGroupTableSeeder::class);
-        //$this->call(CoordinatesTableSeeder::class);
         $this->call(UserTableSeeder::class);
         $this->call(AssetsTableSeeder::class);
         $this->call(CustodiansTableSeeder::class);
         $this->call(DepartmentsTableSeeder::class);
         $this->call(SectionsTableSeeder::class);
+        $this->call(CostCentersTableSeeder::class);
+        $this->call(AccountabilitiesTableSeeder::class);
 
         Model::unguard();
     }
