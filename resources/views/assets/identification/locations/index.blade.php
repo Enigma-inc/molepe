@@ -2,8 +2,8 @@
 @section('content')
 <div class="container">
     <div class="row">
-            <a href="{{route('location.create')}}" class="btn btn-primary col-xs-12 col-sm-6 col-md-4 pull-right">Add Location</a>
-            <div class="panel panel-default">
+            <a href="{{route('location.create')}}" class="btn btn-info col-xs-12 col-sm-6 col-md-4 pull-right">Add Location</a>
+            <div class="panel panel-primary">
                 <div class="panel-heading">List Of Asset Locations</div>
                 <div class="panel-body">
                     <table class="table table-bordered">

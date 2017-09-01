@@ -2,7 +2,7 @@
 @section('content')
 <div class="row">
         <div class="col-md-8 col-md-offset-2"> 
-            <div class="panel panel-default">
+            <div class="panel panel-primary">
                 <div class="panel-heading">Assign Asset Accountability</div>
                 <div class="panel-body">
                     {!! Form::open(['method' => 'POST', 'route' => ['accountability.store', $asset->id], 'class' => 'form-horizontal']) !!}

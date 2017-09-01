@@ -5,7 +5,7 @@
 
 <div class="row">
         <div class="col-md-8 col-md-offset-2"> 
-            <div class="panel panel-default">
+            <div class="panel panel-primary">
 
                 <div class="panel-body">
                     {!! Form::open(['method' => 'POST', 'route' => 'assetClass.store', 'class' => 'form-horizontal']) !!}

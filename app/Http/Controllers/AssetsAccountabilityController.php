@@ -43,35 +43,21 @@ class AssetsAccountabilityController extends Controller
     }
 
     public function showAssetAccountability($id){
+        
         $asset = Asset::find($id);
 
-        $assetAccountability = DB::table('asset_accountabilities')
-                                ->select('asset_accountabilities.restrictions',
-                                         'asset_accountabilities.id',
-                                         'asset_accountabilities.asset_id',
-                                         'departments.name as department_name',
-                                         'departments.id as department_id',
-                                         'cost_centers.name as cost_center_name',
-                                         'cost_centers.id as cost_center_id',
-                                         'sections.name as section_name',
-                                         'sections.id as section_id',
-                                         'custodians.name as custodian_name',
-                                         'custodians.last_name as custodian_last_name',
-                                         'custodians.email as custodian_email',
-                                         'custodians.phone as custodian_phone',
-                                         'custodians.id as custodian_id')
-                                ->join('departments','departments.id','asset_accountabilities.department_id')
-                                ->join('cost_centers','cost_centers.id','asset_accountabilities.cost_center_id')
-                                ->join('sections','sections.id','asset_accountabilities.section_id')
-                                ->join('custodians','custodians.id','asset_accountabilities.custodian_id')
-                                ->join('assets','assets.id','asset_accountabilities.asset_id')
-                                ->where('asset_accountabilities.asset_id','=',$asset->id)
-                                ->get();
+        $assetAccountability = AssetAccountability::with(['costCenter', 
+                                                          'section', 
+                                                          'department', 
+                                                          'custodian'
+                                                          ])
+                                                    ->where('asset_id', $asset->id)
+                                                    ->first();
                                 
         return view('assets.accountability.show')
                ->with([
                       'asset' => $asset,
-                      'assetAccountability' => $assetAccountability,
+                      'assetAccountability' => $assetAccountability
                      ]);
     }
 
@@ -119,14 +105,33 @@ class AssetsAccountabilityController extends Controller
 
     public function destroyCostCenter($id){
 
-        $accountability = AssetAccountability::find($id);
+        $asset = Asset::find($id);
 
-        $update = DB::table('asset_accountabilities')->where('asset_accountabilities.id', '=', $accountability->cost_center_id)
-                    ->update(
-                        array(
-                            $accountability->cost_center_id => Input::has('costCenter') ? Input::get('costCenter') : null,
-                        )
-                    );
+        $update = DB::table('asset_accountabilities')
+                    ->where('asset_id', '=', $asset->id)
+                    ->update(['cost_center_id' => NULL]);
+
+        return redirect()->route('asset.list'); 
+    }
+
+    public function destroySection($id){
+        
+        $asset = Asset::find($id);
+
+        $update = DB::table('asset_accountabilities')
+                    ->where('asset_id', '=', $asset->id)
+                    ->update(['section_id' => NULL]);
+
+        return redirect()->route('asset.list'); 
+    }
+
+    public function destroyDepartment($id){
+        
+        $asset = Asset::find($id);
+
+        $update = DB::table('asset_accountabilities')
+                    ->where('asset_id', '=', $asset->id)
+                    ->update(['department_id' => NULL]);
 
         return redirect()->route('asset.list'); 
     }

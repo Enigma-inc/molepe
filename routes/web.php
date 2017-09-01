@@ -73,10 +73,13 @@ Route::post('assets/{id}/delete','AssetsController@destroy')->name('asset.delete
 
 //Asset Accountability
 Route::post('asset/{id}/accountability/store', 'AssetsAccountabilityController@store')->name('accountability.store');
-Route::get('asset/{id}/accoutability', 'AssetsAccountabilityController@showAssetAccountability')->name('asset.accountability');
+Route::get('asset/{id}/accountability', 'AssetsAccountabilityController@showAssetAccountability')->name('asset.accountability');
 Route::get('accountability/{id}/edit', 'AssetsAccountabilityController@edit')->name('asset.accountability.edit');
 Route::patch('accountability/{accountability}/update', 'AssetsAccountabilityController@update')->name('asset.accountability.update');
-Route::post('accountability/cost-center/{id}/delete', 'AssetsAccountabilityController@destroyCostCenter')->name('cost-center.remove');
+Route::post('asset/{id}/accountability/cost-center/remove', 'AssetsAccountabilityController@destroyCostCenter')->name('cost-center.remove');
+Route::post('asset/{id}/accountability/department/remove', 'AssetsAccountabilityController@destroyDepartment')->name('department.remove');
+Route::post('asset/{id}/accountability/section/remove', 'AssetsAccountabilityController@destroySection')->name('section.remove');
+
 
 //Cost Centers
 Route::get('assets/accountability/cost-centers', 'CostCentersController@index')->name('cost-center.list');

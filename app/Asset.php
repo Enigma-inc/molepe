@@ -38,7 +38,7 @@ class Asset extends Model implements Transformable
     {
         return $this->belongsTo(Asset::class, 'parent_id');
     }
-    public function owner(){
+    public function accountability(){
         return $this->belongsTo(AssetAccountability::class);
     }
 }

@@ -2,8 +2,8 @@
 @section('content')
 <div class="container">
     <div class="row">
-            <a href="{{route('assetSubclass.create')}}" class="btn btn-primary col-xs-12 col-sm-6 col-md-4 pull-right">Add Asset Subclass</a>
-            <div class="panel panel-default">
+            <a href="{{route('assetSubclass.create')}}" class="btn btn-info col-xs-12 col-sm-6 col-md-4 pull-right">Add Asset Subclass</a>
+            <div class="panel panel-primary">
                 <div class="panel-heading">List Of Asset Subclasses</div>
                 <div class="panel-body">
                     <table class="table table-bordered">

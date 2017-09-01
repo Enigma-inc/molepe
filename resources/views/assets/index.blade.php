@@ -2,10 +2,10 @@
 @section('content')
 <div class="container">
     <div class="row">
-            <a href="{{route('asset.create')}}" class="btn btn-primary col-xs-12 col-sm-6 col-md-4 pull-right">Add Asset</a>
-            <div class="panel panel-default">
+            <a href="{{route('asset.create')}}" class="btn btn-info col-xs-12 col-sm-6 col-md-4 pull-right">Add Asset</a>
+            <div class="panel panel-primary">
                 <div class="panel-heading">List Of Assets</div>
-                <div class="panel-body">
+                <div class="panel-content">
                     <table class="table table-bordered">
                         <thead>
                             <tr>

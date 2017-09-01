@@ -30,8 +30,8 @@ class AssetAccountability extends Model
      {
          return $this->belongsTo(Section::class);
      }
-     public function accountability()
+     public function asset()
      {
-         return $this->hasOne(AssetAccountability::class);
+         return $this->hasOne(Asset::class);
      }
 }

@@ -41,7 +41,7 @@
                     </div>
                 </div>
             </div>
-            <div class="panel panel-default bordered">
+            <div class="panel panel-primary bordered">
                 <div class="panel-heading">Asset Number - <strong>{{$asset->asset_number}}</strong></div>
                     
                     <div class="panel-body"> 
