@@ -135,4 +135,15 @@ class AssetsAccountabilityController extends Controller
 
         return redirect()->route('asset.list'); 
     }
+
+    public function destroyCustodian($id){
+        
+        $asset = Asset::find($id);
+
+        $update = DB::table('asset_accountabilities')
+                    ->where('asset_id', '=', $asset->id)
+                    ->update(['custodian_id' => NULL]);
+
+        return redirect()->route('asset.list'); 
+    }
 }

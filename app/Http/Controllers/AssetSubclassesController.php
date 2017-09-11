@@ -19,11 +19,9 @@ class AssetSubclassesController extends Controller
 
     public function create(){
         $assetClasses = AssetClass::all();
-        return view('assets.identification.assetsubclasses.create')->with(['assetClasses'=>$assetClasses]);
-    }
-    
-    public function show(){
-
+        return view('assets.identification.assetsubclasses.create')
+        
+                ->with(['assetClasses'=>$assetClasses]);
     }
 
     public function store(assetSubclassesRequest $request){
@@ -41,10 +39,17 @@ class AssetSubclassesController extends Controller
 
     public function edit($id){
         $assetSubclass = AssetSubclass::find($id);
+
+        $selectedSubclass = AssetSubclass::find($assetSubclass->asset_class_id);
+
         $assetClasses = AssetClass::all();
-        if(!empty($assetsubclass->toArray()))
+        if(!empty($assetSubclass->toArray()))
         {
-            return view('assets.identification.assetsubclasses.edit')->with(['assetSubclass'=>$assetSubclass, 'assetclasses'=>$assetClasses]);
+            return view('assets.identification.assetsubclasses.edit')
+                    ->with(['assetSubclass'=>$assetSubclass, 
+                            'assetclasses'=>$assetClasses,
+                            'selectedSubclass'=>$selectedSubclass
+                            ]);
         } 
         else{
             return redirect()->route('assetSubclass.list');

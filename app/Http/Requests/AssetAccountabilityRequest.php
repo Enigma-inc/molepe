@@ -24,7 +24,6 @@ class AssetAccountabilityRequest extends FormRequest
     public function rules()
     {
         return [
-            'restrictions' => 'required',
             'custodian' => 'required',
             'department' => 'required',
             'section' => 'required',

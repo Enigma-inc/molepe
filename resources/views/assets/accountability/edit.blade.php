@@ -24,9 +24,13 @@
                             <label for="custodian" class="col-md-4 control-label">Custodian</label>
                             <div class="col-md-6">
                                 <select name="custodian" id="custodian" class="form-control">
-                                  <option value="{{$selectedCustodian->id}}">{{$selectedCustodian->name}}</option>
+                                    @if(isset($selectedCustodian->name))                                
+                                            <option value="{{$selectedCustodian->id}}">{{$selectedCustodian->name}}</option>
+                                    @endif
                                     @foreach($custodians as $custodian)
+                                        @if($selectedCustodian->name!=$custodian->name)                                    
                                             <option value="{{$custodian->id}}">{{$custodian->name}}</option>
+                                        @endif                                            
                                     @endforeach
                                 </select>
                                 @if($errors->has('custodian'))
@@ -41,7 +45,9 @@
                             <label for="department" class="col-md-4 control-label">Department</label>
                             <div class="col-md-6">
                                 <select name="department" id="department" class="form-control">
-                                  <option value="{{$selectedDepartment->id}}">{{$selectedDepartment->name}}</option>
+                                    @if(isset($selectedDepartment->name))
+                                            <option value="{{$selectedDepartment->id}}">{{$selectedDepartment->name}}</option>
+                                    @endif                                  
                                     @foreach($departments as $department)
                                             <option value="{{$department->id}}">{{$department->name}}</option>
                                     @endforeach
@@ -58,9 +64,13 @@
                             <label for="costCenter" class="col-md-4 control-label">Cost Center</label>
                             <div class="col-md-6">
                                 <select name="costCenter" id="costCenter" class="form-control">
-                                  <option value="{{$selectedCostCenter->id}}">{{$selectedCostCenter->name}}</option>
+                                    @if($selectedCostCenter->name)
+                                            <option value="{{$selectedCostCenter->id}}">{{$selectedCostCenter->name}}</option>
+                                    @endif
                                     @foreach($costCenters as $costCenter)
+                                        @if($selectedCostCenter->name!=$costCenter->name)
                                             <option value="{{$costCenter->id}}">{{$costCenter->name}}</option>
+                                        @endif
                                     @endforeach
                                 </select>
                                 @if($errors->has('costCenter'))
@@ -75,9 +85,13 @@
                             <label for="section" class="col-md-4 control-label">Section</label>
                             <div class="col-md-6">
                                 <select name="section" id="section" class="form-control">
-                                  <option value="{{$selectedSection->id}}">{{$selectedSection->name}}</option>
+                                    @if($selectedSection->name)
+                                            <option value="{{$selectedSection->id}}">{{$selectedSection->name}}</option>
+                                    @endif
                                     @foreach($sections as $section)
+                                        @if($selectedSection->name!=$section->name)
                                             <option value="{{$section->id}}">{{$section->name}}</option>
+                                        @endif
                                     @endforeach
                                 </select>
                                 @if($errors->has('section'))

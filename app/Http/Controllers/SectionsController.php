@@ -39,7 +39,6 @@ class SectionsController extends Controller
     }
 
     public function update(Request $request, Section $section){
-
         $section->name = $request->input('name');
         $section->save();
 

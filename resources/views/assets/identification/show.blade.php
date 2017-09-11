@@ -27,7 +27,7 @@
                                         @endif
                                     </div>
                                 </div>
-                                <div class="modal-footer">
+                                <div class="modal-footer-molepe">
                                     <button type="submit" class="btn btn-primary">
                                         Submit
                                     </button>

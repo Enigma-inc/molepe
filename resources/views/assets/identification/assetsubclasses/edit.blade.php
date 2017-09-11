@@ -8,7 +8,7 @@
             <div class="panel panel-primary">
                 <div class="panel-heading">Edit Asset-Subclass</div>
                 <div class="panel-body">
-                {!! Form::model($assetsubclass,['method' => 'PATCH', 'route' => ['assetsubclass.update',$assetsubclass->id], 'class' => 'form-horizontal']) !!}
+                {!! Form::model($assetSubclass,['method' => 'PATCH', 'route' => ['assetSubclass.update',$assetSubclass->id], 'class' => 'form-horizontal']) !!}
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
@@ -54,7 +54,7 @@
                             <label for="asset-class" class="col-md-4 control-label">Asset Class</label>
                             <div class="col-md-6">
                                 <select name="asset-class" id="asset-class" class="form-control">
-                                    <option value=""></option>
+                                    <option value="{{$selectedSubclass->id}}">{{$selectedSubclass->name}}</option>
                                     @foreach($assetclasses as $assetclass)
                                         <option value="{{$assetclass->id}}">{{$assetclass->name}} - {{$assetclass->description}}</option>
                                     @endforeach

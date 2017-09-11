@@ -33,7 +33,7 @@
                         </div>
                         <div class="form-group{{ $errors->has('dimensions') ? ' has-error' : '' }}">
                             <label for="dimensions" class="col-md-4 control-label">Dimensions/Capacity</label></label>
-
+ 
                             <div class="col-md-6">                            
                             {!! Form::text('dimensions', null, ['class' => 'form-control']) !!}
                                 @if ($errors->has('dimensions'))

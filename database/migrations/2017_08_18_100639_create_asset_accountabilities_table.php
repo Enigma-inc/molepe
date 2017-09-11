@@ -15,7 +15,7 @@ class CreateAssetAccountabilitiesTable extends Migration
     {
         Schema::create('asset_accountabilities', function(Blueprint $table){
             $table->increments('id');
-            $table->text('restrictions');
+            $table->text('restrictions')->nullable();
             $table->integer('department_id')->unsigned()->nullable();
             $table->integer('custodian_id')->unsigned()->nullable();
             $table->integer('cost_center_id')->unsigned()->nullable();

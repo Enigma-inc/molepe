@@ -3,7 +3,7 @@
 <div class="container">
     <div class="row">
             <button class="btn btn-info col-xs-12 col-sm-6 col-md-4 pull-right" data-toggle="modal" data-target="#myModal">Add Cost Center</button>
-            <div id="myModal" class="modal fade" role="dialog">
+            <div id="myModal" class="modal" role="dialog">
                     <div class="modal-dialog">
 
                         <!-- Modal content--> 
@@ -28,15 +28,15 @@
                                     </div>
                                 </div>
 
-                                <div class="modal-footer">
-                                    <button type="submit" class="btn btn-primary">
-                                        Submit
-                                    </button>
-                                    <button type="button" class="btn btn-default" data-dismiss="modal">
-                                        Close
-                                    </button>
-                                </div>
-                            {!! Form::close() !!}                                        
+                            {!! Form::close() !!} 
+                            <div class="modal-footer-molepe">                                       
+                                <button type="submit" class="btn btn-primary">
+                                    Submit
+                                </button>
+                                <button type="button" class="btn btn-default" data-dismiss="modal">
+                                    Close
+                                </button>
+                            </div>    
                         </div>
                     </div>
                 </div>

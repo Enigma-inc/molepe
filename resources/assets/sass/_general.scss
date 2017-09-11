@@ -2,10 +2,18 @@
     display: flex;
     justify-content: space-between;
 }
+.button-item{
+    flex: 0.17;
+}
+.section-button-item{
+    flex: 0.12;
+}
+.cost-center-button-item{
+    flex: 0.17;
+}
 .content-flex {
     display: flex;
     justify-content: space-between;
-    padding-left: 10px;
 }
 .bordered{
     border-style: groove;
@@ -55,4 +63,13 @@
 }
 .bordered {
     border:1px solid #ddd!important
+}
+
+.modal-footer-molepe {
+    padding: 15px;
+    text-align: right;
+}
+
+.modal-header-molepe {
+    padding: 15px;
 }
