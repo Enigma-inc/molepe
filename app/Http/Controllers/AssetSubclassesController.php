@@ -34,7 +34,7 @@ class AssetSubclassesController extends Controller
             'asset_class_id' =>$request->input('asset-class')
        ]);
 
-      return redirect()->route('assetsubclass.list');       
+      return redirect()->route('assetSubclass.list');       
     }
 
     public function edit($id){
